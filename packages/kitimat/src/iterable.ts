@@ -1,4 +1,6 @@
-(Symbol as any).asyncIterator = Symbol.asyncIterator || Symbol.for('Symbol.asyncIterator');
+if (!Symbol.asyncIterator) {
+  (Symbol as any).asyncIterator = Symbol.for('Symbol.asyncIterator');
+}
 
 const getIterator = <A>(iter: AsyncIterable<A>): AsyncIterator<A> => iter[Symbol.asyncIterator]();
 
