@@ -1,6 +1,6 @@
 {
   "name": "kitimat",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Property-based Testing for TypeScript",
   "license": "MIT",
   "author": "Gabe Scholz",

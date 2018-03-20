@@ -1,6 +1,6 @@
 {
   "name": "kitimat-type-gen",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create Kitimat generates from TypeScript type aliases",
   "license": "MIT",
   "author": "Gabe Scholz",
@@ -9,9 +9,5 @@
     "url": "https://github.com/garbles/kitimat"
   },
   "main": "__build__/index.js",
-  "types": "__build__/index.d.ts",
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "types": "__build__/index.d.ts"
 }

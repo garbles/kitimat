@@ -1,6 +1,6 @@
 {
   "name": "kitimat-graphql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Transforms GraphQL queries into Kitimat generators",
   "license": "MIT",
   "author": "Gabe Scholz",

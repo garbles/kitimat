@@ -1,6 +1,6 @@
 {
   "name": "integration-tests",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "private": true,
   "license": "MIT",
   "author": "Gabe Scholz",
@@ -8,11 +8,10 @@
     "test": "jest; yarn typecheck",
     "typecheck": "tsc -p tsconfig.json"
   },
-  "dependencies": {},
   "devDependencies": {
     "jest": "^22.4.2",
-    "kitimat": "*",
-    "kitimat-jest": "*",
+    "kitimat": "^0.1.1",
+    "kitimat-jest": "^0.1.1",
     "ts-jest": "^22.4.1"
   },
   "jest": {
