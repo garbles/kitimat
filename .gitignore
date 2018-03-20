@@ -3,3 +3,4 @@ __build__
 coverage
 yarn-error.log
 _book
+lerna-debug.log
