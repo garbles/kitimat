@@ -591,7 +591,7 @@ dependencies and run all of the tests.
 
 **_PLEASE_** take into consideration that this is a
 personal open source project and nobody is paying me to do this work.
-It would amazing if you would **_FIRST_** open an issue to
+It would be amazing if you could **_FIRST_** open an issue to
 discuss your change and proposed implementation. It is a terrible
 feeling to have to reject a change over a disagreement; especially,
 when the author has clearly put in a lot of effort.
