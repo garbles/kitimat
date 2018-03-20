@@ -1,0 +1,19 @@
+{
+  "name": "kitimat-jest",
+  "version": "0.1.0",
+  "description": "Jest integration for Kitimat",
+  "license": "MIT",
+  "author": "Gabe Scholz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garbles/kitimat"
+  },
+  "peerDependencies": {
+    "jest": "^22.1.4"
+  },
+  "dependencies": {
+    "kitimat": "0.1.0"
+  },
+  "main": "__build__/index.js",
+  "types": "__build__/index.d.ts"
+}

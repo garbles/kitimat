@@ -1,0 +1,41 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "^22.1.1",
+    "@types/lodash": "^4.14.100",
+    "@types/node": "^9.4.6",
+    "in-publish": "^2.0.0",
+    "jest": "^22.1.4",
+    "lerna": "^2.9.0",
+    "lodash": "^4.17.4",
+    "ts-jest": "^22.0.2",
+    "typescript": "^2.7.1"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "globalSetup": "<rootDir>/scripts/jest-run-make.js",
+    "testRegex": "packages/kitimat.*/src/__test__/.*\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  },
+  "scripts": {
+    "test": "jest",
+    "test:integration": "cd packages/integration-tests; yarn test"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "trailingComma": "all"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

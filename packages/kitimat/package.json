@@ -1,0 +1,20 @@
+{
+  "name": "kitimat",
+  "version": "0.1.0",
+  "description": "Property-based Testing for TypeScript",
+  "license": "MIT",
+  "author": "Gabe Scholz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garbles/kitimat"
+  },
+  "main": "__build__/index.js",
+  "types": "__build__/index.d.ts",
+  "dependencies": {
+    "cosmiconfig": "^4.0.0",
+    "invariant": "^2.2.3"
+  },
+  "devDependencies": {
+    "@types/invariant": "^2.2.29"
+  }
+}

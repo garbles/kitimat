@@ -1,0 +1,4333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`array 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          18,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          19,
+        ],
+      },
+    ],
+    "root": Array [
+      20,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          17,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          18,
+        ],
+      },
+    ],
+    "root": Array [
+      19,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          17,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+          17,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          12,
+          17,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          17,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          10,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          14,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          16,
+          11,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          17,
+          10,
+        ],
+      },
+    ],
+    "root": Array [
+      14,
+      17,
+      11,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+    ],
+    "root": Array [],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+        ],
+      },
+    ],
+    "root": Array [
+      14,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+    ],
+    "root": Array [],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+          15,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          12,
+          15,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          10,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          13,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          14,
+          16,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          10,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          13,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          15,
+          17,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          10,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          14,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          16,
+          12,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          10,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          11,
+          19,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          12,
+          10,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          12,
+          15,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          12,
+          17,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          15,
+          16,
+          17,
+          12,
+          18,
+        ],
+      },
+    ],
+    "root": Array [
+      13,
+      15,
+      16,
+      17,
+      12,
+      19,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+        ],
+      },
+    ],
+    "root": Array [
+      11,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          10,
+          13,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          13,
+          13,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          14,
+          13,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          10,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          12,
+          12,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          13,
+          10,
+        ],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [
+          15,
+          13,
+          11,
+        ],
+      },
+    ],
+    "root": Array [
+      15,
+      13,
+      12,
+    ],
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+      Object {
+        "children": Array [],
+        "root": Array [],
+      },
+    ],
+    "root": Array [],
+  },
+]
+`;
+
+exports[`asciiString 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "y[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "wrC",
+      },
+      Object {
+        "children": Array [],
+        "root": "Cy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "y[wr",
+      },
+      Object {
+        "children": Array [],
+        "root": "[wCr",
+      },
+      Object {
+        "children": Array [],
+        "root": "wyCr",
+      },
+      Object {
+        "children": Array [],
+        "root": "[yCr",
+      },
+      Object {
+        "children": Array [],
+        "root": " Cy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "ICy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "^Cy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "hCy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "mCy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "pCy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "qCy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "r y[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "r2y[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "r;y[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "r?y[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rAy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rBy[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rC [w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCM[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCc[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCn[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCt[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCw[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCx[w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy>w",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCyMw",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCyTw",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCyXw",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCyZw",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[ ",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[L",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[b",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[m",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[r",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[u",
+      },
+      Object {
+        "children": Array [],
+        "root": "rCy[v",
+      },
+    ],
+    "root": "rCy[w",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "lv8",
+      },
+      Object {
+        "children": Array [],
+        "root": "8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "&nlv",
+      },
+      Object {
+        "children": Array [],
+        "root": "nl8v",
+      },
+      Object {
+        "children": Array [],
+        "root": "l&8v",
+      },
+      Object {
+        "children": Array [],
+        "root": "n&8v",
+      },
+      Object {
+        "children": Array [],
+        "root": " 8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "K8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "a8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "l8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "q8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "t8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "u8&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v &nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v,&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v2&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v5&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v7&nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8 nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8#nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8%nl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8& l",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&Gl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&[l",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&el",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&jl",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&ll",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&ml",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&n ",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nF",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nY",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nc",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nh",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nj",
+      },
+      Object {
+        "children": Array [],
+        "root": "v8&nk",
+      },
+    ],
+    "root": "v8&nl",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "7~J",
+      },
+      Object {
+        "children": Array [],
+        "root": "J\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "\`n7~",
+      },
+      Object {
+        "children": Array [],
+        "root": "n7J~",
+      },
+      Object {
+        "children": Array [],
+        "root": "7\`J~",
+      },
+      Object {
+        "children": Array [],
+        "root": "n\`J~",
+      },
+      Object {
+        "children": Array [],
+        "root": " J\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "OJ\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "gJ\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "sJ\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "yJ\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "|J\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "}J\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~ \`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~5\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~@\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~E\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~H\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~I\`n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J@n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~JPn7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~JXn7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\\\\n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J^n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J_n7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\` 7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`G7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`[7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`e7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`j7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`l7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`m7",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`n ",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`n,",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`n2",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`n5",
+      },
+      Object {
+        "children": Array [],
+        "root": "~J\`n6",
+      },
+    ],
+    "root": "~J\`n7",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": " 	",
+      },
+      Object {
+        "children": Array [],
+        "root": "	 ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "   ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  
+",
+      },
+    ],
+    "root": "  	",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*",
+      },
+      Object {
+        "children": Array [],
+        "root": "*c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "c&5",
+      },
+      Object {
+        "children": Array [],
+        "root": "&*5",
+      },
+      Object {
+        "children": Array [],
+        "root": "c*5",
+      },
+      Object {
+        "children": Array [],
+        "root": " *c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "+*c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "0*c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "3*c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "4*c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5 c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5%c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5(c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5)c&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5* &",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*B&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*S&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*[&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*_&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*a&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*b&",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*c ",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*c#",
+      },
+      Object {
+        "children": Array [],
+        "root": "5*c%",
+      },
+    ],
+    "root": "5*c&",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "cuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "vrZ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Zcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "cuvr",
+      },
+      Object {
+        "children": Array [],
+        "root": "uvZr",
+      },
+      Object {
+        "children": Array [],
+        "root": "vcZr",
+      },
+      Object {
+        "children": Array [],
+        "root": "ucZr",
+      },
+      Object {
+        "children": Array [],
+        "root": " Zcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "IZcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "^Zcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "hZcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "mZcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "pZcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "qZcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "r cuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "r=cuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rLcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rScuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rWcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rYcuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZ uv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZBuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZSuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZ[uv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZ_uv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZauv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZbuv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZc v",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcKv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZc\`v",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZckv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcpv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcsv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZctv",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcu ",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcuK",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcua",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcul",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcuq",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcut",
+      },
+      Object {
+        "children": Array [],
+        "root": "rZcuu",
+      },
+    ],
+    "root": "rZcuv",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF",
+      },
+      Object {
+        "children": Array [],
+        "root": "vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "F*j9B",
+      },
+      Object {
+        "children": Array [],
+        "root": "*j9vB",
+      },
+      Object {
+        "children": Array [],
+        "root": "j9FvB",
+      },
+      Object {
+        "children": Array [],
+        "root": "9*FvB",
+      },
+      Object {
+        "children": Array [],
+        "root": "j*FvB",
+      },
+      Object {
+        "children": Array [],
+        "root": " vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "1vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": ":vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": ">vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "@vF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "AvF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "B F*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BKF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BaF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BlF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BqF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BtF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BuF*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "Bv *j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "Bv3*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "Bv=*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvB*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvD*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvE*j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF%j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF(j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF)j9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF* 9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*E9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*X9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*a9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*f9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*h9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*i9",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*j ",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*j-",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*j3",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*j6",
+      },
+      Object {
+        "children": Array [],
+        "root": "BvF*j8",
+      },
+    ],
+    "root": "BvF*j9",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1",
+      },
+      Object {
+        "children": Array [],
+        "root": "1}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "}u+",
+      },
+      Object {
+        "children": Array [],
+        "root": "u1+",
+      },
+      Object {
+        "children": Array [],
+        "root": "}1+",
+      },
+      Object {
+        "children": Array [],
+        "root": " 1}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "&1}u",
+      },
+      Object {
+        "children": Array [],
+        "root": ")1}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "*1}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+ }u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+)}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+-}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+/}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+0}u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1 u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1Ou",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1fu",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1ru",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1xu",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1{u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1|u",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1} ",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}K",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}\`",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}k",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}p",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}s",
+      },
+      Object {
+        "children": Array [],
+        "root": "+1}t",
+      },
+    ],
+    "root": "+1}u",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It",
+      },
+      Object {
+        "children": Array [],
+        "root": "It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "t/=h6",
+      },
+      Object {
+        "children": Array [],
+        "root": "/=hI6",
+      },
+      Object {
+        "children": Array [],
+        "root": "=htI6",
+      },
+      Object {
+        "children": Array [],
+        "root": "h/tI6",
+      },
+      Object {
+        "children": Array [],
+        "root": "=/tI6",
+      },
+      Object {
+        "children": Array [],
+        "root": " It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "+It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "1It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "4It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "5It/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6 t/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "65t/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6?t/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Dt/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Gt/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Ht/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6I /=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6IJ/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6I_/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Ij/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Io/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Ir/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6Is/=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It =h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It(=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It,=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It.=h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/ h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It//h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/6h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/:h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/<h",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/= ",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=D",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=V",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=_",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=d",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=f",
+      },
+      Object {
+        "children": Array [],
+        "root": "6It/=g",
+      },
+    ],
+    "root": "6It/=h",
+  },
+  Object {
+    "children": Array [],
+    "root": "",
+  },
+]
+`;
+
+exports[`boolean 1`] = `
+Array [
+  Object {
+    "children": Array [],
+    "root": false,
+  },
+  Object {
+    "children": Array [],
+    "root": false,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": false,
+      },
+    ],
+    "root": true,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": false,
+      },
+    ],
+    "root": true,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": false,
+      },
+    ],
+    "root": true,
+  },
+  Object {
+    "children": Array [],
+    "root": false,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": false,
+      },
+    ],
+    "root": true,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": false,
+      },
+    ],
+    "root": true,
+  },
+  Object {
+    "children": Array [],
+    "root": false,
+  },
+  Object {
+    "children": Array [],
+    "root": false,
+  },
+]
+`;
+
+exports[`float 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": -0,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.6111406527009917,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.9167109790514876,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.0694961422267355,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.1458887238143594,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.1840850146081714,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2031831600050773,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2127322327035304,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2175067690527568,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.21989403722737,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2210876713146768,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.22168448835833,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2219828968801567,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.22213210114107,
+      },
+      Object {
+        "children": Array [],
+        "root": -1.2222067032715267,
+      },
+    ],
+    "root": -1.2222813054019834,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 1.6727416322218358,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.5091124483327536,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.9272978563882126,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.136390560415942,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.240936912429807,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.293210088436739,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3193466764402055,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3324149704419384,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.338949117442805,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3422161909432386,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3438497276934553,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3446664960685633,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.345074880256117,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3452790723498946,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3453811683967833,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.3454322164202273,
+      },
+    ],
+    "root": 3.3454832644436716,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 1.7919570945244256,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6879356417866385,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.135924915417745,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.359919552233298,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.4719168706410746,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5279155298449627,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.555914859446907,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.569914524247879,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5769143566483654,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5804142728486084,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.58216423094873,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5830392099987907,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.583476699523821,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5836954442863362,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5838048166675938,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.5838595028582225,
+      },
+    ],
+    "root": 3.5839141890488513,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.1186337358265654,
+      },
+      Object {
+        "children": Array [],
+        "root": 4.677950603739848,
+      },
+      Object {
+        "children": Array [],
+        "root": 5.457609037696489,
+      },
+      Object {
+        "children": Array [],
+        "root": 5.84743825467481,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.04235286316397,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.13981016740855,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.188538819530841,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.212903145591985,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.225085308622559,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.231176390137845,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.2342219308954885,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.23574470127431,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.23650608646372,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.236886779058425,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.237077125355778,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.237172298504454,
+      },
+    ],
+    "root": 6.237267471653131,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 3.619573409820752,
+      },
+      Object {
+        "children": Array [],
+        "root": 5.429360114731128,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.334253467186316,
+      },
+      Object {
+        "children": Array [],
+        "root": 6.78670014341391,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.012923481527707,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.126035150584606,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.182590985113055,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.21086890237728,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.2250078610093915,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.232077340325448,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.2356120799834756,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.23737944981249,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.2382631347269974,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.23870497718425,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.238925898412877,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.239036359027191,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.239091589334347,
+      },
+    ],
+    "root": 7.239146819641504,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": -0,
+      },
+      Object {
+        "children": Array [],
+        "root": -3.7242588640666296,
+      },
+      Object {
+        "children": Array [],
+        "root": -5.586388296099944,
+      },
+      Object {
+        "children": Array [],
+        "root": -6.517453012116602,
+      },
+      Object {
+        "children": Array [],
+        "root": -6.982985370124931,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.215751549129095,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.332134638631177,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.390326183382218,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.4194219557577386,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.433969841945499,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.441243785039379,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.444880756586319,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.44669924235979,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.4476084852465245,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.448063106689892,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.448290417411576,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.4484040727724175,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.448460900452838,
+      },
+    ],
+    "root": -7.448517728133259,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 1.3400472276581736,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.0100708414872606,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.345082648401804,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.512588551859076,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.5963415035877118,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6382179794520297,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6591562173841883,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6696253363502676,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6748598958333076,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6774771755748272,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.678785815445587,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6794401353809674,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6797672953486575,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.679930875332502,
+      },
+      Object {
+        "children": Array [],
+        "root": 2.6800126653244245,
+      },
+    ],
+    "root": 2.6800944553163473,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": -0,
+      },
+      Object {
+        "children": Array [],
+        "root": -5.05,
+      },
+      Object {
+        "children": Array [],
+        "root": -7.574999999999999,
+      },
+      Object {
+        "children": Array [],
+        "root": -8.837499999999999,
+      },
+      Object {
+        "children": Array [],
+        "root": -9.46875,
+      },
+      Object {
+        "children": Array [],
+        "root": -9.784375,
+      },
+      Object {
+        "children": Array [],
+        "root": -9.9421875,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.021093749999999,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.060546875,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.0802734375,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.09013671875,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.095068359374999,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.0975341796875,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.09876708984375,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.099383544921874,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.099691772460936,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.099845886230469,
+      },
+      Object {
+        "children": Array [],
+        "root": -10.099922943115235,
+      },
+    ],
+    "root": -10.1,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": -0,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.398717705361193,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.5980765580417895,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.6977559843820877,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7475956975522369,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7725155541373114,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7849754824298487,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7912054465761174,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7943204286492517,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7958779196858188,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7966566652041024,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7970460379632442,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7972407243428151,
+      },
+      Object {
+        "children": Array [],
+        "root": -0.7973380675326005,
+      },
+    ],
+    "root": -0.797435410722386,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 0,
+      },
+      Object {
+        "children": Array [],
+        "root": 4.897465842256245,
+      },
+      Object {
+        "children": Array [],
+        "root": 7.346198763384367,
+      },
+      Object {
+        "children": Array [],
+        "root": 8.570565223948428,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.18274845423046,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.488840069371474,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.64188587694198,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.718408780727234,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.75667023261986,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.775800958566176,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.785366321539332,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.79014900302591,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.7925403437692,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.793736014140844,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.794333849326666,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.794632766919577,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.794782225716034,
+      },
+      Object {
+        "children": Array [],
+        "root": 9.794856955114263,
+      },
+    ],
+    "root": 9.79493168451249,
+  },
+]
+`;
+
+exports[`integer 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+    ],
+    "root": 11,
+  },
+  Object {
+    "children": Array [],
+    "root": 10,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 12,
+      },
+    ],
+    "root": 13,
+  },
+  Object {
+    "children": Array [],
+    "root": 10,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 15,
+      },
+      Object {
+        "children": Array [],
+        "root": 17,
+      },
+      Object {
+        "children": Array [],
+        "root": 18,
+      },
+    ],
+    "root": 19,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+    ],
+    "root": 11,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 11,
+      },
+    ],
+    "root": 12,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 13,
+      },
+      Object {
+        "children": Array [],
+        "root": 14,
+      },
+    ],
+    "root": 15,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 15,
+      },
+      Object {
+        "children": Array [],
+        "root": 18,
+      },
+      Object {
+        "children": Array [],
+        "root": 19,
+      },
+    ],
+    "root": 20,
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": 10,
+      },
+      Object {
+        "children": Array [],
+        "root": 13,
+      },
+      Object {
+        "children": Array [],
+        "root": 15,
+      },
+    ],
+    "root": 16,
+  },
+]
+`;
+
+exports[`map2 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!©.MõÜÙz_ÀþÃ]4ãôî.×¸ß¥0]«lýº",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!Íäj8'ç",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!MWW¦Ô®¼÷PâÜUÇ",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!h¤",
+  },
+  Object {
+    "children": Array [],
+    "root": "!!",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!Y",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!	",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!îµ¨ùÖ×Ò}JßO¼¼ºan°xý",
+  },
+  Object {
+    "children": Array [],
+    "root": "!!",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "!!",
+      },
+    ],
+    "root": "!!Æåìz$hP",
+  },
+]
+`;
+
+exports[`string 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": ".Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "õ©",
+      },
+      Object {
+        "children": Array [],
+        "root": ".Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": ".Mõ©",
+      },
+      Object {
+        "children": Array [],
+        "root": "Mõ©",
+      },
+      Object {
+        "children": Array [],
+        "root": "õ.©",
+      },
+      Object {
+        "children": Array [],
+        "root": "M.©",
+      },
+      Object {
+        "children": Array [],
+        "root": " .Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "e.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": ".Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": ".Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "¡.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "¥.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "§.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "¨.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "© .Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©S.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©l.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©y.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "© Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©'Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©+Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©-Mõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©. õ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.7õ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Bõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Hõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Kõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Lõ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.M ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.M",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.MÀ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.MÛ",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mè",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mï",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mò",
+      },
+      Object {
+        "children": Array [],
+        "root": "©.Mô",
+      },
+    ],
+    "root": "©.Mõ",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "þz_",
+      },
+      Object {
+        "children": Array [],
+        "root": "_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Àþz",
+      },
+      Object {
+        "children": Array [],
+        "root": "Àþ_z",
+      },
+      Object {
+        "children": Array [],
+        "root": "þ_z",
+      },
+      Object {
+        "children": Array [],
+        "root": "À_z",
+      },
+      Object {
+        "children": Array [],
+        "root": " _Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "M_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "d_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "o_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "u_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "x_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "y_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z@Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "zPÀþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "zXÀþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z\\\\Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z^Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_ Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_^Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_}Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_ þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_pþ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_¬þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_¶þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_»þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_¾þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_¿þ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_À ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_À",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_ÀÇ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àã",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àñ",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àø",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àû",
+      },
+      Object {
+        "children": Array [],
+        "root": "z_Àý",
+      },
+    ],
+    "root": "z_Àþ",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "ôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": ".4ã",
+      },
+      Object {
+        "children": Array [],
+        "root": "ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "ôî.4",
+      },
+      Object {
+        "children": Array [],
+        "root": "î.ã4",
+      },
+      Object {
+        "children": Array [],
+        "root": ".ôã4",
+      },
+      Object {
+        "children": Array [],
+        "root": "îôã4",
+      },
+      Object {
+        "children": Array [],
+        "root": " ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "*ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "/ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "2ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "3ãôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4 ôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4³ôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4Ëôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4×ôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4Ýôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4àôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4âôî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ã î.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ã¿î.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãÚî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãçî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãîî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãñî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãóî.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãô .",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãô.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãô».",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôÕ.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôâ.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôè.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôë.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôí.",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôî ",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôî'",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôî+",
+      },
+      Object {
+        "children": Array [],
+        "root": "4ãôî-",
+      },
+    ],
+    "root": "4ãôî.",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": " 	",
+      },
+      Object {
+        "children": Array [],
+        "root": "	 ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "   ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  ",
+      },
+      Object {
+        "children": Array [],
+        "root": "  
+",
+      },
+    ],
+    "root": "  	",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº",
+      },
+      Object {
+        "children": Array [],
+        "root": "º&",
+      },
+      Object {
+        "children": Array [],
+        "root": "&ý",
+      },
+      Object {
+        "children": Array [],
+        "root": "&ºý",
+      },
+      Object {
+        "children": Array [],
+        "root": "ºý",
+      },
+      Object {
+        "children": Array [],
+        "root": " º&",
+      },
+      Object {
+        "children": Array [],
+        "root": "º&",
+      },
+      Object {
+        "children": Array [],
+        "root": "Æº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "âº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ðº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷º&",
+      },
+      Object {
+        "children": Array [],
+        "root": "úº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "üº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý &",
+      },
+      Object {
+        "children": Array [],
+        "root": "ým&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý§&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý±&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý¶&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý¸&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ý¹&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº &",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýºS&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýºl&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýºy&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº&",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº#",
+      },
+      Object {
+        "children": Array [],
+        "root": "ýº%",
+      },
+    ],
+    "root": "ýº&",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "çäj",
+      },
+      Object {
+        "children": Array [],
+        "root": "j8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "8'çä",
+      },
+      Object {
+        "children": Array [],
+        "root": "'çjä",
+      },
+      Object {
+        "children": Array [],
+        "root": "ç8jä",
+      },
+      Object {
+        "children": Array [],
+        "root": "'8jä",
+      },
+      Object {
+        "children": Array [],
+        "root": " j8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "j8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "³j8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "Ìj8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "Øj8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "Þj8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "áj8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "ãj8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "ä 8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äE8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äX8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äa8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äf8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äh8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äi8'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj 'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj,'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj2'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj5'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj7'ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8 ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8$ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8&ç",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8' ",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'¶",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'Ï",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'Û",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'á",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'ä",
+      },
+      Object {
+        "children": Array [],
+        "root": "äj8'æ",
+      },
+    ],
+    "root": "äj8'ç",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "W¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MW",
+      },
+      Object {
+        "children": Array [],
+        "root": "WW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "WW¦ÔM",
+      },
+      Object {
+        "children": Array [],
+        "root": "W¦ÔM",
+      },
+      Object {
+        "children": Array [],
+        "root": "¦ÔWM",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÔWWM",
+      },
+      Object {
+        "children": Array [],
+        "root": "¦WWM",
+      },
+      Object {
+        "children": Array [],
+        "root": " WW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "7WW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "BWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "HWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "KWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "LWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "M WW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MQWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MjWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MvWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "M|WW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "M W¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "M<W¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MJW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MQW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MTW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MVW¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MW ¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MW<¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWJ¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWQ¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWT¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWV¦Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWWcÔ",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWWÔ",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWWÔ",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWWÔ",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¢Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¤Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¥Ô",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦ ",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦z",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦§",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦¾",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦É",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦Ï",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦Ò",
+      },
+      Object {
+        "children": Array [],
+        "root": "MWW¦Ó",
+      },
+    ],
+    "root": "MWW¦Ô",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "â÷",
+      },
+      Object {
+        "children": Array [],
+        "root": "P÷",
+      },
+      Object {
+        "children": Array [],
+        "root": " ÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Y÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "u÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": " Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Pâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÂPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÝPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "êPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ñPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ôPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "öPâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷ â",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷8â",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Dâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Jâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Mâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Oâ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷P ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷P",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷P²",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷PÊ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷PÖ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷PÜ",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pß",
+      },
+      Object {
+        "children": Array [],
+        "root": "÷Pá",
+      },
+    ],
+    "root": "÷Pâ",
+  },
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "root": "",
+      },
+      Object {
+        "children": Array [],
+        "root": "h¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZ",
+      },
+      Object {
+        "children": Array [],
+        "root": "Zh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "h¤ÿ",
+      },
+      Object {
+        "children": Array [],
+        "root": "h¤Zÿ",
+      },
+      Object {
+        "children": Array [],
+        "root": "¤Zÿ",
+      },
+      Object {
+        "children": Array [],
+        "root": "hZÿ",
+      },
+      Object {
+        "children": Array [],
+        "root": "¤hZÿ",
+      },
+      Object {
+        "children": Array [],
+        "root": " Zh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "Zh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÈZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "äZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "òZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ùZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "üZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "þZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿ h¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿ=h¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿLh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿSh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿWh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿYh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZ h¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZVh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZqh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZ~h¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZ ¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZD¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZV¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZ_¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZd¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZf¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZg¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZhb",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¢",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh£",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤ ",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤V",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤q",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤~",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+      Object {
+        "children": Array [],
+        "root": "ÿZh¤",
+      },
+    ],
+    "root": "ÿZh¤",
+  },
+  Object {
+    "children": Array [],
+    "root": "",
+  },
+]
+`;

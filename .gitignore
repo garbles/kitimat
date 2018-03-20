@@ -1,0 +1,5 @@
+node_modules
+__build__
+coverage
+yarn-error.log
+_book

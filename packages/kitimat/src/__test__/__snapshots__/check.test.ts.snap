@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check fail 1`] = `
+Object {
+  "data": Object {
+    "args": Array [
+      Array [
+        1000,
+        1000,
+      ],
+    ],
+    "depth": 7,
+    "result": false,
+  },
+  "options": Object {
+    "maxNumTests": 1000,
+    "seed": 12345678,
+    "seedSource": "Date.now()",
+    "timeout": 5000,
+  },
+  "property": [Function],
+  "success": false,
+}
+`;
+
+exports[`check success 1`] = `
+Object {
+  "options": Object {
+    "maxNumTests": 1000,
+    "seed": 12345678,
+    "seedSource": "Date.now()",
+    "timeout": 5000,
+  },
+  "property": [Function],
+  "success": true,
+}
+`;

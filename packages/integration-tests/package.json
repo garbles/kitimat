@@ -1,0 +1,29 @@
+{
+  "name": "integration-tests",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "author": "Gabe Scholz",
+  "scripts": {
+    "test": "jest; yarn typecheck",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "kitimat": "*",
+    "kitimat-jest": "*",
+    "ts-jest": "^22.4.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "src/__test__/.*\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  }
+}
