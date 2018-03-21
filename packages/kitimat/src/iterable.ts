@@ -2,7 +2,7 @@ if (!Symbol.asyncIterator) {
   (Symbol as any).asyncIterator = Symbol.for('Symbol.asyncIterator');
 }
 
-const getIterator = <A>(iter: AsyncIterable<A>): AsyncIterator<A> => iter[Symbol.asyncIterator]();
+export const getIterator = <A>(iter: AsyncIterable<A>): AsyncIterator<A> => iter[Symbol.asyncIterator]();
 
 export const create = <A>(fn: () => AsyncIterator<A>): AsyncIterable<A> => ({
   [Symbol.asyncIterator]: fn,
