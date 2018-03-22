@@ -1,4 +1,4 @@
-import { property, Fuzzer, Rose, Options, normalizeOptions, check as baseCheck } from 'kitimat';
+import { property, Fuzzer, Options, check as baseCheck } from 'kitimat';
 
 interface JestSpec {
   addExpectationResult(passed: boolean, matcherResult: {}, isError: boolean): void;
@@ -91,50 +91,55 @@ export type CB6<A, B, C, D, E, F, G> = (a: A, b: B, c: C, d: D, e: E, f: F) => A
 export type CBAny<A> = (...args: any[]) => Awaitable<A>;
 
 export interface Check {
-  <A>(description: string, fuzzers: [Fuzzer<A>], cb: CB2<A, Done, void>, options?: Partial<Options>): void;
-  <A>(description: string, fuzzers: [Fuzzer<A>], cb: CB1<A, void>, options?: Partial<Options>): any;
+  <A>(description: string, fuzzers: [Fuzzer<A>], cb: CB2<A, Done, void>, options?: Partial<Options.Options>): void;
+  <A>(description: string, fuzzers: [Fuzzer<A>], cb: CB1<A, void>, options?: Partial<Options.Options>): any;
   <A, B>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>],
     cb: CB3<A, B, Done, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
-  <A, B>(description: string, fuzzers: [Fuzzer<A>, Fuzzer<B>], cb: CB2<A, B, void>, options?: Partial<Options>): void;
+  <A, B>(
+    description: string,
+    fuzzers: [Fuzzer<A>, Fuzzer<B>],
+    cb: CB2<A, B, void>,
+    options?: Partial<Options.Options>,
+  ): void;
   <A, B, C>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>],
     cb: CB4<A, B, C, Done, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
   <A, B, C>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>],
     cb: CB3<A, B, C, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
   <A, B, C, D>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>, Fuzzer<D>],
     cb: CB5<A, B, C, D, Done, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
   <A, B, C, D>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>, Fuzzer<D>],
     cb: CB4<A, B, C, D, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
   <A, B, C, D, E>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>, Fuzzer<D>, Fuzzer<E>],
     cb: CB6<A, B, C, D, E, Done, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
   <A, B, C, D, E>(
     description: string,
     fuzzers: [Fuzzer<A>, Fuzzer<B>, Fuzzer<C>, Fuzzer<D>, Fuzzer<E>],
     cb: CB5<A, B, C, D, E, void>,
-    options?: Partial<Options>,
+    options?: Partial<Options.Options>,
   ): void;
 }
 
@@ -147,9 +152,9 @@ const createCheck = (it_: jest.It): Check => (
   description: string,
   fuzzers: Fuzzer<any>[],
   cb: CBAny<void>,
-  checkOptions: Partial<Options> = {},
+  checkOptions: Partial<Options.Options> = {},
 ) => {
-  const { seed, seedSource, maxNumTests, timeout } = normalizeOptions(checkOptions);
+  const { seed, seedSource, maxNumTests, timeout } = Options.normalizeOptions(checkOptions);
 
   const hasDone = cb.length > fuzzers.length;
   const wrapper = wrapCallback(cb, hasDone);
