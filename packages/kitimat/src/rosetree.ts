@@ -97,3 +97,10 @@ export const flatten = <A>(a: Rose<Rose<A>>): Rose<A> => {
 };
 
 export const flatMap = <A, B>(fn: (a: A) => Rose<B>, a: Rose<A>): Rose<B> => flatten(map(fn, a));
+
+export const deepCache = <A>(a: Rose<A>): Rose<A> => {
+  return {
+    root: root(a),
+    children: Iter.cached<Rose<A>>(Iter.map(kid => deepCache(kid), children(a))),
+  };
+};
