@@ -17,6 +17,12 @@ test('take', async () => {
   }
 });
 
+test('take 0 should take 0', async () => {
+  const iter = Iter.take(0, Iter.always(123));
+  const arr = await Iter.toArray(iter);
+  expect(arr).toHaveLength(0);
+});
+
 test('drop', async () => {
   const fuzz = Random.array(50, Random.integer(0, 2 ** 20));
 

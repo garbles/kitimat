@@ -140,11 +140,11 @@ export const take = <A>(i: number, iter: AsyncIterable<A>): AsyncIterable<A> =>
     let j = 0;
 
     for await (let next of iter) {
-      yield next;
-
-      if (++j >= i) {
+      if (j++ >= i) {
         break;
       }
+
+      yield next;
     }
   });
 
