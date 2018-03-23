@@ -1,6 +1,6 @@
 {
   "name": "integration-tests",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": true,
   "license": "MIT",
   "author": "Gabe Scholz",
@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "jest": "^22.4.2",
-    "kitimat": "^0.1.3",
-    "kitimat-jest": "^0.1.3",
+    "kitimat": "^0.1.4",
+    "kitimat-jest": "^0.1.4",
     "ts-jest": "^22.4.1"
   },
   "jest": {
