@@ -1,6 +1,6 @@
 import * as path from 'path';
 import * as fs from 'fs';
-import { Options } from 'kitimat';
+import * as Options from 'kitimat-options';
 
 const rcPath = path.join(__dirname, '../../.kitimatrc');
 

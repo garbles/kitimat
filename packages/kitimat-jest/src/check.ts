@@ -1,4 +1,5 @@
-import { property, Fuzzer, Options, check as baseCheck } from 'kitimat';
+import { property, Fuzzer, check as baseCheck } from 'kitimat';
+import * as Options from 'kitimat-options';
 
 interface JestSpec {
   addExpectationResult(passed: boolean, matcherResult: {}, isError: boolean): void;

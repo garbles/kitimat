@@ -45,11 +45,7 @@ const reducer = <A>(acc: Aggregate<A>, event: Test.RunnerEvent<A>): Aggregate<A>
   }
 };
 
-export const check = async <A>(
-  property: Property.Property<A>,
-  options_?: Partial<Options.Options>,
-): Promise<Report<A>> => {
-  const options = Options.normalizeOptions(options_);
+export const check = async <A>(property: Property.Property<A>, options: Options.Options): Promise<Report<A>> => {
   const events = property(options);
 
   const acc: Aggregate<A> = {

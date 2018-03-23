@@ -1,7 +1,7 @@
 {
-  "name": "kitimat",
-  "version": "0.1.2",
-  "description": "Property-based Testing for TypeScript",
+  "name": "kitimat-options",
+  "version": "0.1.1",
+  "description": "Normalize inputs for Kitimat",
   "license": "MIT",
   "author": "Gabe Scholz",
   "repository": {
@@ -11,9 +11,6 @@
   "main": "__build__/index.js",
   "types": "__build__/index.d.ts",
   "dependencies": {
-    "invariant": "^2.2.3"
-  },
-  "devDependencies": {
-    "@types/invariant": "^2.2.29"
+    "cosmiconfig": "^4.0.0"
   }
 }

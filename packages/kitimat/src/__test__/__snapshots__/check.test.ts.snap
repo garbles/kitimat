@@ -15,8 +15,6 @@ Object {
   "options": Object {
     "maxNumTests": 1000,
     "seed": 12345678,
-    "seedSource": "Date.now()",
-    "timeout": 5000,
   },
   "property": [Function],
   "success": false,
@@ -28,8 +26,6 @@ Object {
   "options": Object {
     "maxNumTests": 1000,
     "seed": 12345678,
-    "seedSource": "Date.now()",
-    "timeout": 5000,
   },
   "property": [Function],
   "success": true,

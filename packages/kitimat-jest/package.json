@@ -12,7 +12,8 @@
     "jest": "^22.1.4"
   },
   "dependencies": {
-    "kitimat": "^0.1.2"
+    "kitimat": "^0.1.2",
+    "kitimat-options": "^0.1.1"
   },
   "main": "__build__/index.js",
   "types": "__build__/index.d.ts"
