@@ -1,6 +1,6 @@
 {
   "name": "kitimat-jest",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Jest integration for Kitimat",
   "license": "MIT",
   "author": "Gabe Scholz",
@@ -12,8 +12,8 @@
     "jest": "^22.1.4"
   },
   "dependencies": {
-    "kitimat": "^0.1.2",
-    "kitimat-options": "^0.1.1"
+    "kitimat": "^0.1.3",
+    "kitimat-options": "^0.1.3"
   },
   "main": "__build__/index.js",
   "types": "__build__/index.d.ts"
