@@ -162,6 +162,57 @@ check('something', [fuzzer], val => {
 });
 ```
 
+### `number(opts?: { minSize?: number, maxSize?: number }): Fuzzer<number>`
+
+Creates an number Fuzzer.
+
+```ts
+import { check, Fuzzer, number } from 'kitimat-jest';
+import { someFunc } from './some-func';
+
+const fuzzer: Fuzzer<number> = number();
+
+check('something', [fuzzer], val => {
+  expect(typeof val).toEqual('number');
+
+  expect(someFunc(val)).toEqual(true);
+});
+```
+
+### `posNumber(opts?: { maxSize?: number }): Fuzzer<number>`
+
+Creates an number Fuzzer of positive values.
+
+```ts
+import { check, Fuzzer, posNumber } from 'kitimat-jest';
+import { someFunc } from './some-func';
+
+const fuzzer: Fuzzer<number> = posNumber();
+
+check('something', [fuzzer], val => {
+  expect(val).toBeGreaterThanOrEqual(0);
+
+  expect(someFunc(val)).toEqual(true);
+});
+```
+
+### `negNumber(opts?: { minSize?: number }): Fuzzer<number>`
+
+Creates an number Fuzzer of negative values.
+
+```ts
+import { check, Fuzzer, negNumber } from 'kitimat-jest';
+import { someFunc } from './some-func';
+
+const fuzzer: Fuzzer<number> = negNumber();
+
+check('something', [fuzzer], val => {
+  expect(val).toBeLessThanOrEqual(0);
+
+  expect(someFunc(val)).toEqual(true);
+});
+```
+
 ### `integer(opts?: { minSize?: number, maxSize?: number }): Fuzzer<number>`
 
 Creates an integer Fuzzer.
@@ -190,7 +241,7 @@ import { someFunc } from './some-func';
 const fuzzer: Fuzzer<number> = posInteger();
 
 check('something', [fuzzer], val => {
-  expect(val).toBeGreaterThan(0);
+  expect(val).toBeGreaterThanOrEqual(0);
 
   expect(someFunc(val)).toEqual(true);
 });
@@ -204,10 +255,10 @@ Creates an integer Fuzzer of negative values.
 import { check, Fuzzer, negInteger } from 'kitimat-jest';
 import { someFunc } from './some-func';
 
-const fuzzer: Fuzzer<number> = posInteger();
+const fuzzer: Fuzzer<number> = negInteger();
 
 check('something', [fuzzer], val => {
-  expect(val).toBeLessThan(0);
+  expect(val).toBeLessThanOrEqual(0);
 
   expect(someFunc(val)).toEqual(true);
 });
@@ -241,7 +292,7 @@ import { someFunc } from './some-func';
 const fuzzer: Fuzzer<number> = posFloat();
 
 check('something', [fuzzer], val => {
-  expect(val).toBeGreaterThan(0);
+  expect(val).toBeGreaterThanOrEqual(0);
 
   expect(someFunc(val)).toEqual(true);
 });
@@ -258,7 +309,7 @@ import { someFunc } from './some-func';
 const fuzzer: Fuzzer<number> = negFloat();
 
 check('something', [fuzzer], val => {
-  expect(val).toBeLessThan(0);
+  expect(val).toBeLessThanOrEqual(0);
 
   expect(someFunc(val)).toEqual(true);
 });
