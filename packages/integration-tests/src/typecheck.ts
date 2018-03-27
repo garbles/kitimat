@@ -5,12 +5,15 @@ import {
   constant,
   integer,
   float,
+  number,
   string,
   asciiString,
   posInteger,
   negInteger,
   posFloat,
   negFloat,
+  posNumber,
+  negNumber,
   array,
   object,
   zip,
@@ -51,6 +54,9 @@ const u: Fuzzer<number | void> = g.maybe();
 const v: Fuzzer<number> = g.noShrink();
 const w: Fuzzer<number> = oneOf([g, i]);
 const x: Fuzzer<string> = g.flatMap(num => string({ maxSize: num }));
+const y: Fuzzer<number> = number();
+const z: Fuzzer<number> = posNumber();
+const aa: Fuzzer<number> = negNumber();
 
 check('something', [boolean(), integer(), string()], (bool, int, str) => {
   const a: boolean = bool;
