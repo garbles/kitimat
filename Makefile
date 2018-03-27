@@ -22,7 +22,9 @@ test :
 	yarn test
 	yarn test:integration
 
-publish : clean build test
+prepublish : clean build test
+
+publish : prepublish
 	yarn lerna publish
 
 $(DEPS) :

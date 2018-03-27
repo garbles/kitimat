@@ -42,6 +42,12 @@ export const custom = <A>(generator: Generator<A>, shrinker: Shrinker<A>): Fuzze
   return new Fuzzer(Random.map(shrinkTree, generator));
 };
 
+export const frequency = <A, B>(pairs: [number, Fuzzer<A>][]): Fuzzer<A> => {
+  const genPairs = pairs.map((x): [number, Random.Generator<RoseTree.Rose<A>>] => [x[0], x[1].generator]);
+  const generator = Random.frequency(genPairs);
+  return new Fuzzer(generator);
+};
+
 const numberHelper = (
   createGenerator: (low: number, high: number) => Generator<number>,
   createShrinker: (min: number) => Shrinker<number>,
@@ -163,15 +169,19 @@ const arrayHelper = <A>(trees: Rose<A>[]): Rose<A[]> => {
 
 export const boolean = () => custom<boolean>(Random.boolean, Shrink.boolean);
 export const constant = <A>(value: A) => custom<A>(Random.constant(value as A), () => Iter.of(value));
-export const integer = numberHelper(Random.integer, Shrink.atLeastInteger);
-export const float = numberHelper(Random.float, Shrink.atLeastFloat);
 export const string = stringHelper(Random.string, Shrink.string);
 export const asciiString = stringHelper(Random.asciiString, Shrink.string);
+export const integer = numberHelper(Random.integer, Shrink.atLeastInteger);
+export const float = numberHelper(Random.float, Shrink.atLeastFloat);
+export const number = (props: Partial<{ minSize: number; maxSize: number }> = {}) =>
+  frequency([[3, integer(props)], [1, float(props)]]);
 
-export const posInteger = (props: Partial<{ maxSize: number }> = {}) => integer({ ...props, minSize: 1 });
-export const negInteger = (props: Partial<{ minSize: number }> = {}) => integer({ ...props, maxSize: -1 });
-export const posFloat = (props: Partial<{ maxSize: number }> = {}) => float({ ...props, minSize: 0.0001 });
-export const negFloat = (props: Partial<{ minSize: number }> = {}) => float({ ...props, maxSize: -0.0001 });
+export const posInteger = (props: Partial<{ maxSize: number }> = {}) => integer({ ...props, minSize: 0 });
+export const negInteger = (props: Partial<{ minSize: number }> = {}) => integer({ ...props, maxSize: -0 });
+export const posFloat = (props: Partial<{ maxSize: number }> = {}) => float({ ...props, minSize: 0 });
+export const negFloat = (props: Partial<{ minSize: number }> = {}) => float({ ...props, maxSize: -0 });
+export const posNumber = (props: Partial<{ maxSize: number }> = {}) => number({ ...props, minSize: 0 });
+export const negNumber = (props: Partial<{ minSize: number }> = {}) => number({ ...props, maxSize: -0 });
 
 export const array = <A>(fuzzer: Fuzzer<A>, props: Partial<{ maxSize: number }> = {}): Fuzzer<A[]> => {
   const { maxSize = 1e2 } = props;
@@ -242,12 +252,6 @@ export const map2 = <A, B, C>(fn: (a: A, b: B) => C, a: Fuzzer<A>, b: Fuzzer<B>)
 
 export const filter = <A>(fn: (a: A) => boolean, a: Fuzzer<A>) => {
   const generator = Random.filterMap(a_ => RoseTree.filter(fn, a_), a.generator);
-  return new Fuzzer(generator);
-};
-
-export const frequency = <A, B>(pairs: [number, Fuzzer<A>][]): Fuzzer<A> => {
-  const genPairs = pairs.map((x): [number, Random.Generator<RoseTree.Rose<A>>] => [x[0], x[1].generator]);
-  const generator = Random.frequency(genPairs);
   return new Fuzzer(generator);
 };
 

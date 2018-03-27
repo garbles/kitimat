@@ -155,9 +155,30 @@ test('float structure', async () => {
       if (root === 0) {
         expect(value).toEqual(0);
       } else if (root < 0) {
-        expect(value).toBeGreaterThan(root);
+        expect(value).toBeGreaterThanOrEqual(root);
       } else {
-        expect(value).toBeLessThan(root);
+        expect(value).toBeLessThanOrEqual(root);
+      }
+    });
+  }
+});
+
+test('number', async () => {
+  const result = sampleFuzzer(Fuzz.number({ minSize: -1e5, maxSize: 1e5 }), 10);
+
+  for await (let tree of result) {
+    const root: number = RoseTree.root(tree);
+    const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
+
+    children.forEach(c => {
+      const value = RoseTree.root(c);
+
+      if (root === 0) {
+        expect(value).toEqual(0);
+      } else if (root < 0) {
+        expect(value).toBeGreaterThanOrEqual(root);
+      } else {
+        expect(value).toBeLessThanOrEqual(root);
       }
     });
   }
@@ -165,22 +186,32 @@ test('float structure', async () => {
 
 test('posInteger', async () => {
   const fuzzer = Fuzz.posInteger();
-  await testValues(fuzzer, num => expect(num).toBeGreaterThan(0));
+  await testValues(fuzzer, num => expect(num).toBeGreaterThanOrEqual(0));
 });
 
 test('negInteger', async () => {
   const fuzzer = Fuzz.negInteger();
-  await testValues(fuzzer, num => expect(num).toBeLessThan(0));
+  await testValues(fuzzer, num => expect(num).toBeLessThanOrEqual(0));
 });
 
 test('posFloat', async () => {
   const fuzzer = Fuzz.posFloat();
-  await testValues(fuzzer, num => expect(num).toBeGreaterThan(0));
+  await testValues(fuzzer, num => expect(num).toBeGreaterThanOrEqual(0));
 });
 
 test('negFloat', async () => {
   const fuzzer = Fuzz.negFloat();
-  await testValues(fuzzer, num => expect(num).toBeLessThan(0));
+  await testValues(fuzzer, num => expect(num).toBeLessThanOrEqual(0));
+});
+
+test('posNumber', async () => {
+  const fuzzer = Fuzz.posNumber();
+  await testValues(fuzzer, num => expect(num).toBeGreaterThanOrEqual(0));
+});
+
+test('negNumber', async () => {
+  const fuzzer = Fuzz.negNumber();
+  await testValues(fuzzer, num => expect(num).toBeLessThanOrEqual(0));
 });
 
 test('string', async () => {
