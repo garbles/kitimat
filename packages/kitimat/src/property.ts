@@ -13,7 +13,7 @@ export type Callback4<A, B, C, D> = (a: A, b: B, c: C, d: D) => boolean | Promis
 export type Callback5<A, B, C, D, E> = (a: A, b: B, c: C, d: D, e: E) => boolean | Promise<boolean>;
 export type Callback = (...args: any[]) => boolean | Promise<boolean>;
 
-export type Property<A> = (options: Options) => AsyncIterable<Test.RunnerEvent<A>>;
+export type Property<A> = (runner: Test.Runner<A>, options: Options) => AsyncIterable<Test.TestRunnerEvent<A>>;
 
 export function property<A>(fuzzers: [Fuzz.Fuzzer<A>], cb: Callback1<A>): Property<[A]>;
 export function property<A, B>(fuzzers: [Fuzz.Fuzzer<A>, Fuzz.Fuzzer<B>], cb: Callback2<A, B>): Property<[A, B]>;
@@ -57,10 +57,10 @@ export function property(fuzzers: Fuzz.Fuzzer<any>[], cb: Callback): Property<an
     run: () => cb.apply(null, args),
   });
 
-  return (options: Options) => {
+  return (runner: Test.Runner<any>, options: Options) => {
     const seed = Random.initialSeed(options.seed);
     const trees = Iter.take(options.maxNumTests, sample(fuzzer.generator, seed));
     const testRuns = Iter.map(tree => RoseTree.map(toTestRun, tree), trees);
-    return Test.runner(testRuns);
+    return runner(testRuns);
   };
 }

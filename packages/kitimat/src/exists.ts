@@ -7,27 +7,26 @@ export type SuccessReport<Args> = {
   success: true;
   options: Options.Options;
   property: Property.Property<Args>;
+  numTests: number;
 };
 
 export type FailReport<Args> = {
   success: false;
   options: Options.Options;
   property: Property.Property<Args>;
-  data: Test.FailData<Args>;
 };
 
 export type Report<Args> = SuccessReport<Args> | FailReport<Args>;
 
-export const check = async <A>(property: Property.Property<A>, options: Options.Options): Promise<Report<A>> => {
-  const events = property(Test.checkRunner, options);
+export const exists = async <A>(property: Property.Property<A>, options: Options.Options): Promise<Report<A>> => {
+  const events = property(Test.existsRunner, options);
   const result = await Test.aggregateEvents(events);
-  const data = Util.last(result.fail);
 
-  // if data is present, the fail aggregate is populated
-  // by at least one failing run.
-  if (data) {
-    return { success: false, property, data, options };
+  if (result.success.length > 0) {
+    const numTests = result.success.length + result.fail.length;
+
+    return { success: true, property, options, numTests };
   } else {
-    return { success: true, property, options };
+    return { success: false, property, options };
   }
 };

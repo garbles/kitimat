@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`exists fail 1`] = `
+Object {
+  "options": Object {
+    "maxNumTests": 1000,
+    "seed": 12345678,
+  },
+  "property": [Function],
+  "success": false,
+}
+`;
+
+exports[`exists success 1`] = `
+Object {
+  "numTests": 1,
+  "options": Object {
+    "maxNumTests": 1000,
+    "seed": 12345678,
+  },
+  "property": [Function],
+  "success": true,
+}
+`;
