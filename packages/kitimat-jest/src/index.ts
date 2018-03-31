@@ -1,4 +1,5 @@
 export { check } from './check';
+export { exists } from './exists';
 export {
   Fuzzer,
   boolean,

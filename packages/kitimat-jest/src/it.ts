@@ -1,4 +1,4 @@
-import { Property, Fuzzer, check as baseCheck } from 'kitimat';
+import { Property, Report, Fuzzer, check as baseCheck } from 'kitimat';
 import * as Options from 'kitimat-options';
 
 export interface JestSpec {
@@ -149,7 +149,7 @@ export interface Extended extends It {
   only: It;
 }
 
-export type Execution = (spec: JestSpec, property: Property.Property<any>, options: Options.Options) => void;
+export type Execution = (property: Property.Property<any>, options: Options.Options) => Promise<Report.Report<any>>;
 
 export const wrap = (it_: jest.It, exe: Execution): It => (
   description: string,
@@ -164,7 +164,29 @@ export const wrap = (it_: jest.It, exe: Execution): It => (
 
   const spec: JestSpec = <any>it_(
     description,
-    async () => await exe(spec, property, { seed, seedSource, maxNumTests, timeout }),
+    async () => {
+      const report = await exe(property, { seed, seedSource, maxNumTests, timeout });
+
+      if (report.success === false) {
+        const error = report.data.result;
+
+        let result: JestResult = {
+          passed: false,
+          error: report.data.result,
+        };
+
+        if (isJestError(error)) {
+          const matcherResult = error.matcherResult;
+
+          result.matcherName = matcherResult.matcherName;
+          result.expected = matcherResult.expected;
+          result.actual = matcherResult.actual;
+        }
+
+        spec.result.description += ` (seed: ${options.seed}, source: ${options.seedSource})`;
+        spec.addExpectationResult(false, result, false);
+      }
+    },
     timeout,
   );
 };

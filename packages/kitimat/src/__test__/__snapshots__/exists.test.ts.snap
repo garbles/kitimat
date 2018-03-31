@@ -2,6 +2,13 @@
 
 exports[`exists fail 1`] = `
 Object {
+  "data": Object {
+    "args": Array [
+      78,
+    ],
+    "depth": 0,
+    "result": false,
+  },
   "options": Object {
     "maxNumTests": 1000,
     "seed": 12345678,
@@ -13,7 +20,6 @@ Object {
 
 exports[`exists success 1`] = `
 Object {
-  "numTests": 1,
   "options": Object {
     "maxNumTests": 1000,
     "seed": 12345678,

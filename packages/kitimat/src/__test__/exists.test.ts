@@ -24,7 +24,6 @@ test('exists success', async () => {
   }
 
   expect(report.success).toEqual(true);
-  expect(report.numTests).toEqual(1);
   expect(report).toMatchSnapshot();
 });
 

@@ -2,31 +2,19 @@ import * as Test from './test';
 import * as Property from './property';
 import * as Options from './options';
 import * as Util from './utilities';
+import * as Report from './report';
 
-export type SuccessReport<Args> = {
-  success: true;
-  options: Options.Options;
-  property: Property.Property<Args>;
-  numTests: number;
-};
-
-export type FailReport<Args> = {
-  success: false;
-  options: Options.Options;
-  property: Property.Property<Args>;
-};
-
-export type Report<Args> = SuccessReport<Args> | FailReport<Args>;
-
-export const exists = async <A>(property: Property.Property<A>, options: Options.Options): Promise<Report<A>> => {
+export const exists = async <A>(
+  property: Property.Property<A>,
+  options: Options.Options,
+): Promise<Report.Report<A>> => {
   const events = property(Test.existsRunner, options);
   const result = await Test.aggregateEvents(events);
 
   if (result.success.length > 0) {
-    const numTests = result.success.length + result.fail.length;
-
-    return { success: true, property, options, numTests };
+    return { success: true, property, options };
   } else {
-    return { success: false, property, options };
+    const data = Util.last(result.fail)!;
+    return { success: false, property, options, data };
   }
 };
