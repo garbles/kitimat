@@ -14,7 +14,7 @@ export const exists = async <A>(
   if (result.success.length > 0) {
     return { success: true, property, options };
   } else {
-    const data = Util.last(result.fail)!;
+    const data = Util.last(result.fail) as Test.FailData<A>;
     return { success: false, property, options, data };
   }
 };
