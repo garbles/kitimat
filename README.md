@@ -82,7 +82,7 @@ error.
 
 ### `check(description: string, fuzzers: Fuzzer[], callback: Function, options: Options): void`
 
-The light wrapper around Jest `it`, but takes a list of Fuzzers and generates values,
+A light wrapper around Jest `it`, but accepts a list of Fuzzers and generates values,
 passing them into the `it` callback.
 
 ```ts
@@ -125,6 +125,21 @@ check.skip('skip something', [boolean()], bool => {
  */
 check.only('only run this thing', [string()], str => {
   // ...
+});
+```
+
+### `exists(description: string, fuzzers: Fuzzer[], callback: Function, options: Options): void`
+
+A light wrapper around Jest `it`, but accepts a list of Fuzzers and generates values,
+passing them into the `it` callback. Similar to `check` except that it completes on the first
+successful test case. `exists` fails if it does not find a successful test case after the
+configured number of test cases.
+
+```ts
+import { exists, boolean } from 'kitimat-jest';
+
+exists('something async', [boolean()], async bool => {
+  expect(result).toEqual(true);
 });
 ```
 
