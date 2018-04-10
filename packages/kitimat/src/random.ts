@@ -30,9 +30,12 @@ export const initialSeed = (x: number): Seed => {
   return next({ state: state2, increment: seed.increment });
 };
 
-export const flatMap = <A, B>(fn: (a: A) => Generator<B>, a: Generator<A>): Generator<B> => async seed => {
+export const flatMap = <A, B>(
+  fn: (a: A) => Generator<B> | Promise<Generator<B>>,
+  a: Generator<A>,
+): Generator<B> => async seed => {
   const { value, nextSeed } = await a(seed);
-  const nextGen = fn(value);
+  const nextGen = await fn(value);
   return nextGen(nextSeed);
 };
 
@@ -110,10 +113,10 @@ export const filter = <A>(fn: (a: A) => boolean, a: Generator<A>): Generator<A> 
   return tryNext(seed_);
 };
 
-export const filterMap = <A>(fn: (a: A) => A | void, a: Generator<A>): Generator<A> => seed_ => {
+export const filterMap = <A>(fn: (a: A) => A | void | Promise<A | void>, a: Generator<A>): Generator<A> => seed_ => {
   const tryNext: Generator<A> = async seed => {
     const { value, nextSeed } = await a(seed);
-    const nextValue = fn(value);
+    const nextValue = await fn(value);
 
     return nextValue !== undefined ? { value: nextValue, nextSeed } : tryNext(nextSeed);
   };

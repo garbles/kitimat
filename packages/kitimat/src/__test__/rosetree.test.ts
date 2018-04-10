@@ -4,7 +4,7 @@ import * as Iter from '../iterable';
 const singleton = RoseTree.singleton(5);
 
 const withChildren = {
-  root: 5,
+  root: Promise.resolve(5),
   children: Iter.from([RoseTree.singleton(3), RoseTree.singleton(10)]),
 };
 

@@ -126,7 +126,7 @@ const stringHelper = (
 
 const arrayHelper = <A>(trees: Rose<A>[]): Rose<A[]> => {
   const len = trees.length;
-  const root = trees.map(RoseTree.root);
+  const root = Promise.all(trees.map(RoseTree.root));
 
   let halved: AsyncIterable<Rose<A[]>>;
 
@@ -164,7 +164,7 @@ const arrayHelper = <A>(trees: Rose<A>[]): Rose<A[]> => {
    * minimum base case.
    */
   const empty = Iter.of(RoseTree.singleton([]));
-  return RoseTree.rose([...root], Iter.concat4(empty, halved, shortened, shrunkValues));
+  return RoseTree.rose(root, Iter.concat4(empty, halved, shortened, shrunkValues));
 };
 
 export const boolean = () => custom<boolean>(Random.boolean, Shrink.boolean);
@@ -240,17 +240,17 @@ export const zip5 = <A, B, C, D, E>(
   e: Fuzzer<E>,
 ): Fuzzer<[A, B, C, D, E]> => map2((arr, val) => [...arr, val] as [A, B, C, D, E], zip4(a, b, c, d), e);
 
-export const map = <A, B>(fn: (a: A) => B, a: Fuzzer<A>): Fuzzer<B> => {
+export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Fuzzer<A>): Fuzzer<B> => {
   const generator = Random.map(a_ => RoseTree.map(fn, a_), a.generator);
   return new Fuzzer(generator);
 };
 
-export const map2 = <A, B, C>(fn: (a: A, b: B) => C, a: Fuzzer<A>, b: Fuzzer<B>): Fuzzer<C> => {
+export const map2 = <A, B, C>(fn: (a: A, b: B) => C | Promise<C>, a: Fuzzer<A>, b: Fuzzer<B>): Fuzzer<C> => {
   const generator = Random.map2((a_, b_) => RoseTree.map2(fn, a_, b_), a.generator, b.generator);
   return new Fuzzer(generator);
 };
 
-export const filter = <A>(fn: (a: A) => boolean, a: Fuzzer<A>) => {
+export const filter = <A>(fn: (a: A) => boolean | Promise<boolean>, a: Fuzzer<A>) => {
   const generator = Random.filterMap(a_ => RoseTree.filter(fn, a_), a.generator);
   return new Fuzzer(generator);
 };
@@ -284,17 +284,17 @@ const flatMapRunAll = <A>(a: AsyncIterable<Fuzzer<Rose<A>>>): Generator<AsyncIte
   };
 };
 
-const flatMapSequenceRose = <A>(a: Rose<Fuzzer<A>>): Fuzzer<Rose<A>> => {
-  const root: Fuzzer<A> = RoseTree.root(a);
+const flatMapSequenceRose = async <A>(a: Rose<Fuzzer<A>>): Promise<Fuzzer<Rose<A>>> => {
+  const root: Fuzzer<A> = await RoseTree.root(a);
   const children: AsyncIterable<Fuzzer<Rose<A>>> = Iter.map(a_ => flatMapSequenceRose(a_), RoseTree.children(a));
   const generator = Random.map2((a_, b_) => RoseTree.rose(a_, b_), root.generator, flatMapRunAll(children));
   return new Fuzzer(generator);
 };
 
 export const flatMap = <A, B>(fn: (a: A) => Fuzzer<B>, a: Fuzzer<A>): Fuzzer<B> => {
-  const generator = Random.flatMap<Rose<A>, Rose<B>>(roseA => {
+  const generator = Random.flatMap<Rose<A>, Rose<B>>(async roseA => {
     const roseGenA = RoseTree.map(fn, roseA);
-    const trees = flatMapSequenceRose<B>(roseGenA);
+    const trees = await flatMapSequenceRose<B>(roseGenA);
     return Random.map<Rose<Rose<B>>, Rose<B>>(RoseTree.flatten, trees.generator);
   }, a.generator);
 

@@ -34,10 +34,10 @@ const serializedSample = <A>(fuzzer: Fuzz.Fuzzer<A>, count = 10) => {
 
 const testValues = async <A>(fuzzer: Fuzz.Fuzzer<A>, callback: (a: A) => void) => {
   for await (let tree of sampleFuzzer(fuzzer)) {
-    callback(RoseTree.root(tree));
+    callback(await RoseTree.root(tree));
 
     for await (let kid of RoseTree.children(tree)) {
-      callback(RoseTree.root(kid));
+      callback(await RoseTree.root(kid));
     }
   }
 };
@@ -74,7 +74,7 @@ test('boolean 2', async () => {
 
   for await (let tree of result) {
     // the pre-condition
-    if (RoseTree.root(tree)[0] !== true) {
+    if ((await RoseTree.root(tree))[0] !== true) {
       continue;
     }
 
@@ -89,7 +89,7 @@ test('boolean structure', async () => {
   for await (let tree of result) {
     const children = await Iter.toArray<RoseTree.Rose<boolean>>(RoseTree.children(tree));
 
-    if (RoseTree.root(tree) === true) {
+    if ((await RoseTree.root(tree)) === true) {
       children.forEach(c => {
         expect(RoseTree.root(c)).toEqual(false);
       });
@@ -108,7 +108,7 @@ test('integer structure', async () => {
   const result = sampleFuzzer(Fuzz.integer({ minSize: -1e5, maxSize: 1e5 }), 10);
 
   for await (let tree of result) {
-    const root: number = RoseTree.root(tree);
+    const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -125,7 +125,7 @@ test('integer structure 2', async () => {
   const result = sampleFuzzer(Fuzz.integer({ minSize: 0, maxSize: 1e5 }), 10);
 
   for await (let tree of result) {
-    const root: number = RoseTree.root(tree);
+    const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -146,7 +146,7 @@ test('float structure', async () => {
   const result = sampleFuzzer(Fuzz.float({ minSize: -1e5, maxSize: 1e5 }), 10);
 
   for await (let tree of result) {
-    const root: number = RoseTree.root(tree);
+    const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -167,7 +167,7 @@ test('number', async () => {
   const result = sampleFuzzer(Fuzz.number({ minSize: -1e5, maxSize: 1e5 }), 10);
 
   for await (let tree of result) {
-    const root: number = RoseTree.root(tree);
+    const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -222,7 +222,7 @@ test('string structure', async () => {
   const result = sampleFuzzer(Fuzz.string({ maxSize: 50 }), 10);
 
   for await (let tree of result) {
-    const root: string = RoseTree.root(tree);
+    const root: string = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<string>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -246,7 +246,7 @@ test('string structure', async () => {
   const result = sampleFuzzer(Fuzz.asciiString({ maxSize: 50 }), 10);
 
   for await (let tree of result) {
-    const root: string = RoseTree.root(tree);
+    const root: string = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<string>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -272,7 +272,7 @@ test('array structure', async () => {
   const result = sampleFuzzer(Fuzz.array(Fuzz.integer({ minSize: 10, maxSize: 20 }), { maxSize: 40 }), 10);
 
   for await (let tree of result) {
-    const root: number[] = RoseTree.root(tree);
+    const root: number[] = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number[]>>(RoseTree.children(tree));
 
     children.forEach(c => {
@@ -442,16 +442,16 @@ test('noShrink', async () => {
 
   const everyHasChildrenOrStartsWithMinInteger = await Iter.every(async tree => {
     const arr = await Iter.toArray(RoseTree.children(tree as any));
-    return arr.length > 0 || RoseTree.root(tree)[1] === 10;
+    return arr.length > 0 || (await RoseTree.root(tree))[1] === 10;
   }, trees);
 
   expect(someHaveChildren && everyHasChildrenOrStartsWithMinInteger).toEqual(true);
 
   for await (let tree of trees) {
-    const [stringA, numberA] = RoseTree.root(tree);
+    const [stringA, numberA] = await RoseTree.root(tree);
 
     for await (let child of RoseTree.children(tree)) {
-      const [stringB, numberB] = RoseTree.root(child);
+      const [stringB, numberB] = await RoseTree.root(child);
 
       expect(stringA).toEqual(stringB);
       expect(numberA).toBeGreaterThan(numberB);
@@ -467,7 +467,7 @@ test('oneOf', async () => {
   let found2 = false;
 
   for await (let tree of trees) {
-    const root = RoseTree.root(tree);
+    const root = await RoseTree.root(tree);
 
     found1 = root === 1 ? true : found1;
     found2 = root === 2 ? true : found2;

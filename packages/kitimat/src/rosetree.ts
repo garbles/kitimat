@@ -1,11 +1,11 @@
 import * as Iter from './iterable';
 
 export interface Rose<A> {
-  root: A;
+  root: Promise<A>;
   children: AsyncIterable<Rose<A>>;
 }
 
-export const root = <A>(a: Rose<A>): A => {
+export const root = <A>(a: Rose<A>): Promise<A> => {
   return a.root;
 };
 
@@ -13,19 +13,19 @@ export const children = <A>(a: Rose<A>): AsyncIterable<Rose<A>> => {
   return a.children;
 };
 
-export const rose = <A>(root: A, children: AsyncIterable<Rose<A>>): Rose<A> => {
+export const rose = <A>(root: A | Promise<A>, children: AsyncIterable<Rose<A>>): Rose<A> => {
   return {
-    root,
+    root: Promise.resolve().then(() => root),
     children,
   };
 };
 
-export const singleton = <A>(root: A): Rose<A> => rose(root, Iter.empty());
+export const singleton = <A>(root: A | Promise<A>): Rose<A> => rose(root, Iter.empty());
 
-export const map = <A, B>(fn: (a: A) => B, a: Rose<A>): Rose<B> => {
+export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Rose<A>): Rose<B> => {
   return {
     get root() {
-      return fn(root(a));
+      return root(a).then(fn);
     },
     children: Iter.cached<Rose<B>>(
       Iter.create<Rose<B>>(async function*() {
@@ -35,10 +35,10 @@ export const map = <A, B>(fn: (a: A) => B, a: Rose<A>): Rose<B> => {
   };
 };
 
-export const map2 = <A, B, C>(fn: (a: A, b: B) => C, a: Rose<A>, b: Rose<B>): Rose<C> => {
+export const map2 = <A, B, C>(fn: (a: A, b: B) => C | Promise<C>, a: Rose<A>, b: Rose<B>): Rose<C> => {
   return {
     get root() {
-      return fn(root(a), root(b));
+      return Promise.all([root(a), root(b)]).then(([a_, b_]) => fn(a_, b_));
     },
     children: Iter.cached<Rose<C>>(
       Iter.create<Rose<C>>(async function*() {
@@ -50,13 +50,13 @@ export const map2 = <A, B, C>(fn: (a: A, b: B) => C, a: Rose<A>, b: Rose<B>): Ro
   };
 };
 
-export const filter = <A>(fn: (a: A) => boolean, a: Rose<A>): Rose<A> | void => {
-  if (fn(root(a))) {
+export const filter = async <A>(fn: (a: A) => boolean | Promise<boolean>, a: Rose<A>): Promise<Rose<A> | void> => {
+  if (await fn(await root(a))) {
     return {
       root: root(a),
       children: Iter.cached<Rose<A>>(
         Iter.create<Rose<A>>(async function*() {
-          yield* Iter.filter(a_ => Boolean(filter(fn, a_)), children(a));
+          yield* Iter.filter(async a_ => Boolean(await filter(fn, a_)), children(a));
         }),
       ),
     };
@@ -65,8 +65,8 @@ export const filter = <A>(fn: (a: A) => boolean, a: Rose<A>): Rose<A> | void => 
 
 export const zip = <A, B>(a: Rose<A>, b: Rose<B>): Rose<[A, B]> => {
   return {
-    get root(): [A, B] {
-      return [root(a), root(b)];
+    get root() {
+      return Promise.all([root(a), root(b)]);
     },
     children: Iter.cached<Rose<[A, B]>>(
       Iter.create<Rose<[A, B]>>(async function*() {
@@ -86,7 +86,7 @@ export const zip = <A, B>(a: Rose<A>, b: Rose<B>): Rose<[A, B]> => {
 export const flatten = <A>(a: Rose<Rose<A>>): Rose<A> => {
   return {
     get root() {
-      return root(root(a));
+      return root(a).then(root);
     },
     children: Iter.cached<Rose<A>>(
       Iter.create<Rose<A>>(async function*() {

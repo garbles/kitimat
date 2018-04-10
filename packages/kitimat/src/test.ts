@@ -74,7 +74,7 @@ export const checkRunner = <A>(
 ): AsyncIterable<TestRunnerEvent<A>> =>
   Iter.create<TestRunnerEvent<A>>(async function*() {
     for await (let testRun of testRuns) {
-      const test = RoseTree.root(testRun);
+      const test = await RoseTree.root(testRun);
       let result: boolean | Error;
 
       try {
@@ -124,7 +124,7 @@ export const existsRunner = <A>(
 ): AsyncIterable<TestRunnerEvent<A>> =>
   Iter.create<TestRunnerEvent<A>>(async function*() {
     for await (let testRun of testRuns) {
-      const test = RoseTree.root(testRun);
+      const test = await RoseTree.root(testRun);
       let result: boolean | Error;
 
       try {
