@@ -8,7 +8,7 @@ export type Result<A> = {
   nextSeed: Seed;
 };
 
-export type Generator<A> = (seed: Seed) => Result<A>;
+export type Generator<A> = (seed: Seed) => Promise<Result<A>>;
 
 const next = (seed: Seed): Seed => {
   const { state, increment } = seed;
@@ -30,21 +30,25 @@ export const initialSeed = (x: number): Seed => {
   return next({ state: state2, increment: seed.increment });
 };
 
-export const flatMap = <A, B>(fn: (a: A) => Generator<B>, a: Generator<A>): Generator<B> => seed => {
-  const { value, nextSeed } = a(seed);
+export const flatMap = <A, B>(fn: (a: A) => Generator<B>, a: Generator<A>): Generator<B> => async seed => {
+  const { value, nextSeed } = await a(seed);
   const nextGen = fn(value);
   return nextGen(nextSeed);
 };
 
-export const map = <A, B>(fn: (a: A) => B, a: Generator<A>): Generator<B> => seed => {
-  const { value, nextSeed } = a(seed);
-  return { value: fn(value), nextSeed };
+export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Generator<A>): Generator<B> => async seed => {
+  const { value, nextSeed } = await a(seed);
+  return { value: await fn(value), nextSeed };
 };
 
-export const map2 = <A, B, C>(fn: (a: A, b: B) => C, a: Generator<A>, b: Generator<B>): Generator<C> => seed => {
-  const { value: valA, nextSeed: seedA } = a(seed);
-  const { value: valB, nextSeed: seedB } = b(seedA);
-  return { value: fn(valA, valB), nextSeed: seedB };
+export const map2 = <A, B, C>(
+  fn: (a: A, b: B) => C | Promise<C>,
+  a: Generator<A>,
+  b: Generator<B>,
+): Generator<C> => async seed => {
+  const { value: valA, nextSeed: seedA } = await a(seed);
+  const { value: valB, nextSeed: seedB } = await b(seedA);
+  return { value: await fn(valA, valB), nextSeed: seedB };
 };
 
 export const frequency = <A>(pairs: [number, Generator<A>][]): Generator<A> => {
@@ -60,8 +64,8 @@ export const frequency = <A>(pairs: [number, Generator<A>][]): Generator<A> => {
 
   const generator = integer(0, total - 1);
 
-  return seed => {
-    const { value: pick, nextSeed } = generator(seed);
+  return async seed => {
+    const { value: pick, nextSeed } = await generator(seed);
 
     for (let pair of totaledWeights) {
       if (pair[0] > pick) {
@@ -77,14 +81,14 @@ export const frequency = <A>(pairs: [number, Generator<A>][]): Generator<A> => {
 export const array = <A>(maxLen: number, gen: Generator<A>): Generator<A[]> => {
   const sizeGenerator = integer(0, maxLen);
 
-  return seed => {
+  return async seed => {
     let i = -1;
     let xs: A[] = [];
 
-    let { value: size, nextSeed } = sizeGenerator(seed);
+    let { value: size, nextSeed } = await sizeGenerator(seed);
 
     while (++i < size) {
-      const result = gen(nextSeed);
+      const result = await gen(nextSeed);
       nextSeed = result.nextSeed;
       xs = xs.concat(result.value);
     }
@@ -93,13 +97,13 @@ export const array = <A>(maxLen: number, gen: Generator<A>): Generator<A[]> => {
   };
 };
 
-export const constant = <A>(value: A): Generator<A> => nextSeed => {
+export const constant = <A>(value: A): Generator<A> => async nextSeed => {
   return { value, nextSeed };
 };
 
 export const filter = <A>(fn: (a: A) => boolean, a: Generator<A>): Generator<A> => seed_ => {
-  const tryNext = (seed: Seed): Result<A> => {
-    const { value, nextSeed } = a(seed);
+  const tryNext: Generator<A> = async seed => {
+    const { value, nextSeed } = await a(seed);
     return fn(value) === true ? { value, nextSeed } : tryNext(nextSeed);
   };
 
@@ -107,8 +111,8 @@ export const filter = <A>(fn: (a: A) => boolean, a: Generator<A>): Generator<A> 
 };
 
 export const filterMap = <A>(fn: (a: A) => A | void, a: Generator<A>): Generator<A> => seed_ => {
-  const tryNext = (seed: Seed): Result<A> => {
-    const { value, nextSeed } = a(seed);
+  const tryNext: Generator<A> = async seed => {
+    const { value, nextSeed } = await a(seed);
     const nextValue = fn(value);
 
     return nextValue !== undefined ? { value: nextValue, nextSeed } : tryNext(nextSeed);
@@ -117,7 +121,7 @@ export const filterMap = <A>(fn: (a: A) => A | void, a: Generator<A>): Generator
   return tryNext(seed_);
 };
 
-export const integer = (a: number, b: number): Generator<number> => (seed: Seed) => {
+export const integer = (a: number, b: number): Generator<number> => async seed => {
   let min: number;
   let max: number;
 
@@ -154,7 +158,7 @@ export const integer = (a: number, b: number): Generator<number> => (seed: Seed)
   return accountForBias(seed);
 };
 
-export const float = (min: number, max: number): Generator<number> => seed => {
+export const float = (min: number, max: number): Generator<number> => async seed => {
   const bit53 = 9007199254740992;
   const bit27 = 134217728;
   const nextSeed = next(seed);

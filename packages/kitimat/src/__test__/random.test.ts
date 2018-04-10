@@ -36,14 +36,14 @@ describe('unit', () => {
     expect(await Iter.toArray(sample(array, 20, staticSeed))).toMatchSnapshot();
   });
 
-  test('filter', () => {
+  test('filter', async () => {
     const integer = Random.integer(-100, 100);
     const integerArray = Random.array(100, integer);
     const gtZero = Random.filter(x => x > 0, integer);
     const gtZeroArray = Random.array(100, gtZero);
 
-    const { value: ints, nextSeed: intLastSeed } = integerArray(staticSeed);
-    const { value: posInts, nextSeed: posIntLastSeed } = gtZeroArray(staticSeed);
+    const { value: ints, nextSeed: intLastSeed } = await integerArray(staticSeed);
+    const { value: posInts, nextSeed: posIntLastSeed } = await gtZeroArray(staticSeed);
 
     expect(ints.some(x => x < 0)).toBe(true);
     expect(posInts.every(x => x > 0)).toBe(true);
@@ -72,26 +72,26 @@ describe('unit', () => {
 });
 
 describe('property', () => {
-  test('integer where min and max are the same', () => {
+  test('integer where min and max are the same', async () => {
     const integer = Random.integer(10, 10);
-    const { value } = integer(randomSeed);
+    const { value } = await integer(randomSeed);
     expect(value).toEqual(10);
   });
 
-  test('integer is within bounds', () => {
+  test('integer is within bounds', async () => {
     const min = -10;
     const max = 10;
     const integer = Random.integer(min, max);
-    const { value } = integer(randomSeed);
+    const { value } = await integer(randomSeed);
     expect(value).toBeLessThanOrEqual(max);
     expect(value).toBeGreaterThanOrEqual(min);
   });
 
-  test('float is within bounds', () => {
+  test('float is within bounds', async () => {
     const min = -1;
     const max = 1;
     const float = Random.float(min, max);
-    const { value } = float(randomSeed);
+    const { value } = await float(randomSeed);
     expect(value).toBeLessThanOrEqual(max);
     expect(value).toBeGreaterThanOrEqual(min);
   });

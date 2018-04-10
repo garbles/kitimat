@@ -269,11 +269,11 @@ export const noShrink = <A>(a: Fuzzer<A>): Fuzzer<A> => {
 export const oneOf = <A>(fuzzers: Fuzzer<A>[]) =>
   frequency(fuzzers.map((fuzzer: Fuzzer<A>): [1, Fuzzer<A>] => [1, fuzzer]));
 
-const flatMapRunAll = <A>(a: AsyncIterable<Fuzzer<Rose<A>>>): Generator<AsyncIterable<Rose<Rose<A>>>> => seed => {
+const flatMapRunAll = <A>(a: AsyncIterable<Fuzzer<Rose<A>>>): Generator<AsyncIterable<Rose<Rose<A>>>> => async seed => {
   let seed_ = seed;
 
-  const value = Iter.map<Fuzzer<Rose<A>>, Rose<Rose<A>>>(fuzz => {
-    const { value, nextSeed } = fuzz.generator(seed_);
+  const value = Iter.map<Fuzzer<Rose<A>>, Rose<Rose<A>>>(async fuzz => {
+    const { value, nextSeed } = await fuzz.generator(seed_);
     seed_ = nextSeed;
     return value;
   }, a);

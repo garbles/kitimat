@@ -10,7 +10,7 @@ export const sample = <A>(a: Random.Generator<A>, seed?: Random.Seed): AsyncIter
     let nextSeed = seed!;
 
     while (true) {
-      const next = a(nextSeed);
+      const next = await a(nextSeed);
       yield next.value;
       nextSeed = next.nextSeed;
     }
