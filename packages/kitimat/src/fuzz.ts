@@ -20,7 +20,7 @@ export class Fuzzer<A> {
     return map(fn, this);
   }
 
-  flatMap<B>(fn: (a: A) => Fuzzer<B>): Fuzzer<B> {
+  flatMap<B>(fn: (a: A) => Awaitable<Fuzzer<B>>): Fuzzer<B> {
     return flatMap(fn, this);
   }
 
@@ -292,7 +292,7 @@ const flatMapSequenceRose = async <A>(a: Rose<Fuzzer<A>>): Promise<Fuzzer<Rose<A
   return new Fuzzer(generator);
 };
 
-export const flatMap = <A, B>(fn: (a: A) => Fuzzer<B>, a: Fuzzer<A>): Fuzzer<B> => {
+export const flatMap = <A, B>(fn: (a: A) => Awaitable<Fuzzer<B>>, a: Fuzzer<A>): Fuzzer<B> => {
   const generator = Random.flatMap<Rose<A>, Rose<B>>(async roseA => {
     const roseGenA = RoseTree.map(fn, roseA);
     const trees = await flatMapSequenceRose<B>(roseGenA);
