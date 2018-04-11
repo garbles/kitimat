@@ -1,4 +1,5 @@
 import * as Iter from './iterable';
+import { Awaitable } from './types';
 
 export interface Rose<A> {
   root: Promise<A>;
@@ -13,16 +14,16 @@ export const children = <A>(a: Rose<A>): AsyncIterable<Rose<A>> => {
   return a.children;
 };
 
-export const rose = <A>(root: A | Promise<A>, children: AsyncIterable<Rose<A>>): Rose<A> => {
+export const rose = <A>(root: Awaitable<A>, children: AsyncIterable<Rose<A>>): Rose<A> => {
   return {
     root: Promise.resolve().then(() => root),
     children,
   };
 };
 
-export const singleton = <A>(root: A | Promise<A>): Rose<A> => rose(root, Iter.empty());
+export const singleton = <A>(root: Awaitable<A>): Rose<A> => rose(root, Iter.empty());
 
-export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Rose<A>): Rose<B> => {
+export const map = <A, B>(fn: (a: A) => Awaitable<B>, a: Rose<A>): Rose<B> => {
   return {
     get root() {
       return root(a).then(fn);
@@ -35,7 +36,7 @@ export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Rose<A>): Rose<B> => 
   };
 };
 
-export const map2 = <A, B, C>(fn: (a: A, b: B) => C | Promise<C>, a: Rose<A>, b: Rose<B>): Rose<C> => {
+export const map2 = <A, B, C>(fn: (a: A, b: B) => Awaitable<C>, a: Rose<A>, b: Rose<B>): Rose<C> => {
   return {
     get root() {
       return Promise.all([root(a), root(b)]).then(([a_, b_]) => fn(a_, b_));
@@ -50,7 +51,7 @@ export const map2 = <A, B, C>(fn: (a: A, b: B) => C | Promise<C>, a: Rose<A>, b:
   };
 };
 
-export const filter = async <A>(fn: (a: A) => boolean | Promise<boolean>, a: Rose<A>): Promise<Rose<A> | void> => {
+export const filter = async <A>(fn: (a: A) => Awaitable<boolean>, a: Rose<A>): Promise<Rose<A> | void> => {
   if (await fn(await root(a))) {
     return {
       root: root(a),

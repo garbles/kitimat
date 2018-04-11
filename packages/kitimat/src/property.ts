@@ -5,13 +5,14 @@ import * as RoseTree from './rosetree';
 import * as Iter from './iterable';
 import { Options } from './options';
 import { sample } from './sample';
+import { Awaitable } from './types';
 
-export type Callback1<A> = (a: A) => boolean | Promise<boolean>;
-export type Callback2<A, B> = (a: A, b: B) => boolean | Promise<boolean>;
-export type Callback3<A, B, C> = (a: A, b: B, c: C) => boolean | Promise<boolean>;
-export type Callback4<A, B, C, D> = (a: A, b: B, c: C, d: D) => boolean | Promise<boolean>;
-export type Callback5<A, B, C, D, E> = (a: A, b: B, c: C, d: D, e: E) => boolean | Promise<boolean>;
-export type Callback = (...args: any[]) => boolean | Promise<boolean>;
+export type Callback1<A> = (a: A) => Awaitable<boolean>;
+export type Callback2<A, B> = (a: A, b: B) => Awaitable<boolean>;
+export type Callback3<A, B, C> = (a: A, b: B, c: C) => Awaitable<boolean>;
+export type Callback4<A, B, C, D> = (a: A, b: B, c: C, d: D) => Awaitable<boolean>;
+export type Callback5<A, B, C, D, E> = (a: A, b: B, c: C, d: D, e: E) => Awaitable<boolean>;
+export type Callback = (...args: any[]) => Awaitable<boolean>;
 
 export type Property<A> = (runner: Test.Runner<A>, options: Options) => AsyncIterable<Test.TestRunnerEvent<A>>;
 

@@ -4,18 +4,19 @@ import * as RoseTree from './rosetree';
 import * as Iter from './iterable';
 import * as Util from './utilities';
 import * as is from './is';
-import { sample } from './sample';
 
+import { sample } from './sample';
 import { Shrinker } from './shrink';
 import { Generator } from './random';
 import { Rose } from './rosetree';
+import { Awaitable } from './types';
 
 import invariant = require('invariant');
 
 export class Fuzzer<A> {
   constructor(public generator: Generator<Rose<A>>) {}
 
-  map<B>(fn: (a: A) => B): Fuzzer<B> {
+  map<B>(fn: (a: A) => Awaitable<B>): Fuzzer<B> {
     return map(fn, this);
   }
 
@@ -23,7 +24,7 @@ export class Fuzzer<A> {
     return flatMap(fn, this);
   }
 
-  filter(fn: (a: A) => boolean): Fuzzer<A> {
+  filter(fn: (a: A) => Awaitable<boolean>): Fuzzer<A> {
     return filter(fn, this);
   }
 
@@ -240,17 +241,17 @@ export const zip5 = <A, B, C, D, E>(
   e: Fuzzer<E>,
 ): Fuzzer<[A, B, C, D, E]> => map2((arr, val) => [...arr, val] as [A, B, C, D, E], zip4(a, b, c, d), e);
 
-export const map = <A, B>(fn: (a: A) => B | Promise<B>, a: Fuzzer<A>): Fuzzer<B> => {
+export const map = <A, B>(fn: (a: A) => Awaitable<B>, a: Fuzzer<A>): Fuzzer<B> => {
   const generator = Random.map(a_ => RoseTree.map(fn, a_), a.generator);
   return new Fuzzer(generator);
 };
 
-export const map2 = <A, B, C>(fn: (a: A, b: B) => C | Promise<C>, a: Fuzzer<A>, b: Fuzzer<B>): Fuzzer<C> => {
+export const map2 = <A, B, C>(fn: (a: A, b: B) => Awaitable<C>, a: Fuzzer<A>, b: Fuzzer<B>): Fuzzer<C> => {
   const generator = Random.map2((a_, b_) => RoseTree.map2(fn, a_, b_), a.generator, b.generator);
   return new Fuzzer(generator);
 };
 
-export const filter = <A>(fn: (a: A) => boolean | Promise<boolean>, a: Fuzzer<A>) => {
+export const filter = <A>(fn: (a: A) => Awaitable<boolean>, a: Fuzzer<A>) => {
   const generator = Random.filterMap(a_ => RoseTree.filter(fn, a_), a.generator);
   return new Fuzzer(generator);
 };

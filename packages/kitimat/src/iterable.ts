@@ -1,3 +1,5 @@
+import { Awaitable } from './types';
+
 if (!Symbol.asyncIterator) {
   (Symbol as any).asyncIterator = Symbol.for('Symbol.asyncIterator');
 }
@@ -20,17 +22,17 @@ export const toArray = async <A>(iter: AsyncIterable<A>): Promise<A[]> => {
 
 export const empty = <A>(): AsyncIterable<A> => create<A>(async function*(): AsyncIterator<A> {});
 
-export const from = <A>(arr: (A | Promise<A>)[]): AsyncIterable<A> =>
+export const from = <A>(arr: Awaitable<A>[]): AsyncIterable<A> =>
   create<A>(async function*() {
     yield* arr;
   });
 
-export const of = <A>(a: A | Promise<A>): AsyncIterable<A> =>
+export const of = <A>(a: Awaitable<A>): AsyncIterable<A> =>
   create<A>(async function*(): AsyncIterator<A> {
     yield await a;
   });
 
-export const every = async <A>(fn: (a: A) => boolean | Promise<boolean>, iter: AsyncIterable<A>): Promise<boolean> => {
+export const every = async <A>(fn: (a: A) => Awaitable<boolean>, iter: AsyncIterable<A>): Promise<boolean> => {
   for await (let next of iter) {
     if ((await fn(next)) === false) {
       return false;
@@ -40,7 +42,7 @@ export const every = async <A>(fn: (a: A) => boolean | Promise<boolean>, iter: A
   return true;
 };
 
-export const some = async <A>(fn: (a: A) => boolean | Promise<boolean>, iter: AsyncIterable<A>): Promise<boolean> => {
+export const some = async <A>(fn: (a: A) => Awaitable<boolean>, iter: AsyncIterable<A>): Promise<boolean> => {
   for await (let next of iter) {
     if ((await fn(next)) === true) {
       return true;
@@ -55,7 +57,7 @@ export const lazy = <A>(fn: () => AsyncIterable<A>): AsyncIterable<A> =>
     yield* fn();
   });
 
-export const map = <A, B>(fn: (a: A) => B | Promise<B>, iter: AsyncIterable<A>): AsyncIterable<B> =>
+export const map = <A, B>(fn: (a: A) => Awaitable<B>, iter: AsyncIterable<A>): AsyncIterable<B> =>
   create<B>(async function*() {
     for await (let next of iter) {
       yield await fn(next);
@@ -63,7 +65,7 @@ export const map = <A, B>(fn: (a: A) => B | Promise<B>, iter: AsyncIterable<A>):
   });
 
 export const map2 = <A, B, C>(
-  fn: (a: A, b: B) => C | Promise<C>,
+  fn: (a: A, b: B) => Awaitable<C>,
   a: AsyncIterable<A>,
   b: AsyncIterable<B>,
 ): AsyncIterable<C> =>
@@ -101,7 +103,7 @@ export const zip4 = <A, B, C, D>(
 ): AsyncIterable<[A, B, C, D]> =>
   map2<[A, B], [C, D], [A, B, C, D]>(([a_, b_], [c_, d_]) => [a_, b_, c_, d_], zip(a, b), zip(c, d));
 
-export const filter = <A>(fn: (a: A) => Promise<boolean> | boolean, iter: AsyncIterable<A>): AsyncIterable<A> =>
+export const filter = <A>(fn: (a: A) => Awaitable<boolean>, iter: AsyncIterable<A>): AsyncIterable<A> =>
   create<A>(async function*() {
     for await (let next of iter) {
       if ((await fn(next)) === true) {
@@ -110,7 +112,7 @@ export const filter = <A>(fn: (a: A) => Promise<boolean> | boolean, iter: AsyncI
     }
   });
 
-export const scan = <A>(fn: (a: A) => Promise<A> | A, init: A): AsyncIterable<A> =>
+export const scan = <A>(fn: (a: A) => Awaitable<A>, init: A): AsyncIterable<A> =>
   create<A>(async function*() {
     let next = init;
     yield next;
@@ -122,7 +124,7 @@ export const scan = <A>(fn: (a: A) => Promise<A> | A, init: A): AsyncIterable<A>
   });
 
 export const reduce = async <A, B>(
-  fn: (prev: A, next: B) => A | Promise<A>,
+  fn: (prev: A, next: B) => Awaitable<A>,
   acc: A,
   iter: AsyncIterable<B>,
 ): Promise<A> => {
@@ -173,7 +175,7 @@ export const range = (low: number, high: number): AsyncIterable<number> => {
   });
 };
 
-export const cons = <A>(a: A | Promise<A>, xs: AsyncIterable<A>): AsyncIterable<A> =>
+export const cons = <A>(a: Awaitable<A>, xs: AsyncIterable<A>): AsyncIterable<A> =>
   create<A>(async function*() {
     yield await a;
 

@@ -1,4 +1,4 @@
-import { Property, Report, Fuzzer, check as baseCheck } from 'kitimat';
+import { Property, Report, Fuzzer, check as baseCheck, Awaitable } from 'kitimat';
 import * as Options from 'kitimat-options';
 
 export interface JestSpec {
@@ -81,7 +81,6 @@ const wrapCallback = (cb: CBAny<void>, hasDone: boolean): CBAny<boolean> => {
   };
 };
 
-export type Awaitable<A> = A | Promise<A>;
 export type Done = () => void;
 export type CB1<A, B> = (a: A) => Awaitable<B>;
 export type CB2<A, B, C> = (a: A, b: B) => Awaitable<C>;

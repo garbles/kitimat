@@ -6,6 +6,7 @@ import * as Shrink from './shrink';
 import * as Property from './property';
 import * as Report from './report';
 
+export { Awaitable } from './types';
 export { check } from './check';
 export { exists } from './exists';
 export * from './fuzz';

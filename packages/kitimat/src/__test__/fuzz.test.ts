@@ -3,6 +3,7 @@ import * as RoseTree from '../rosetree';
 import * as Fuzz from '../fuzz';
 import * as Iter from '../iterable';
 import * as Shrink from '../shrink';
+import { Awaitable } from '../types';
 import { sample } from './helpers';
 
 const sampleFuzzer = <A>(fuzz: Fuzz.Fuzzer<A>, count?: number, seed?: Random.Seed) =>
@@ -42,7 +43,7 @@ const testValues = async <A>(fuzzer: Fuzz.Fuzzer<A>, callback: (a: A) => void) =
   }
 };
 
-const some = async <A>(children: A[], fn: (a: A) => Promise<boolean> | boolean) => {
+const some = async <A>(children: A[], fn: (a: A) => Awaitable<boolean>) => {
   for await (let c of children) {
     if ((await fn(c)) === true) {
       return true;
