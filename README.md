@@ -531,7 +531,7 @@ check('something', [fuzzer], val => {
 });
 ```
 
-### `map<A, B>(fn: (a: A) => B, a: Fuzzer<A>): Fuzzer<B>`
+### `map<A, B>(fn: (a: A) => B | Promise<B>, a: Fuzzer<A>): Fuzzer<B>`
 
 Takes a mapping function that returns any value and a Fuzzer.
 Maps all generated values to create a Fuzzer of a new type.
@@ -550,7 +550,7 @@ check('something', [fuzzer], val => {
 });
 ```
 
-### `flatMap<A, B>(fn: (a: A) => Fuzzer<B>, a: Fuzzer<A>): Fuzzer<B>`
+### `flatMap<A, B>(fn: (a: A) => Fuzzer<B> | Promise<Fuzzer<B>>, a: Fuzzer<A>): Fuzzer<B>`
 
 Takes a mapping function that returns a new Fuzzer and a Fuzzer.
 Maps all generated values to create a new Fuzzer of a new type.
@@ -576,7 +576,7 @@ check('something', [fuzzer], val => {
 });
 ```
 
-### `filter<A>(fn: (a: A) => boolean, a: Fuzzer<A>): Fuzzer<A>`
+### `filter<A>(fn: (a: A) => boolean | Promise<boolean>, a: Fuzzer<A>): Fuzzer<A>`
 
 Takes a filtering function and a Fuzzer. If a generated value
 does not pass the filtering function, another value will be attempted
