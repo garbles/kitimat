@@ -18,9 +18,9 @@ const serialize = async <A>(depth: number, trees: AsyncIterable<RoseTree.Rose<A>
   const result = [];
 
   for await (let tree of trees) {
-    let root = RoseTree.root(tree);
+    let root = await RoseTree.root(tree);
     let children = await serialize(depth - 1, RoseTree.children(tree));
-    const next = RoseTree.rose(root, children);
+    const next = { root, children };
     result.push(next);
   }
 
@@ -40,6 +40,16 @@ const testValues = async <A>(fuzzer: Fuzz.Fuzzer<A>, callback: (a: A) => void) =
       callback(await RoseTree.root(kid));
     }
   }
+};
+
+const some = async <A>(children: A[], fn: (a: A) => Promise<boolean> | boolean) => {
+  for await (let c of children) {
+    if ((await fn(c)) === true) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 test('custom with constant generator', async () => {
@@ -79,7 +89,7 @@ test('boolean 2', async () => {
     }
 
     const children = await Iter.toArray(RoseTree.children(tree));
-    expect(children.some(kid => RoseTree.root(kid)[0] === true)).toEqual(true);
+    expect(await some(children, async kid => (await RoseTree.root(kid))[0] === true)).toEqual(true);
   }
 });
 
@@ -90,9 +100,9 @@ test('boolean structure', async () => {
     const children = await Iter.toArray<RoseTree.Rose<boolean>>(RoseTree.children(tree));
 
     if ((await RoseTree.root(tree)) === true) {
-      children.forEach(c => {
-        expect(RoseTree.root(c)).toEqual(false);
-      });
+      for await (let c of children) {
+        expect(await RoseTree.root(c)).toEqual(false);
+      }
     } else {
       expect(children).toHaveLength(0);
     }
@@ -111,13 +121,13 @@ test('integer structure', async () => {
     const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
-    children.forEach(c => {
+    for await (let c of RoseTree.children(tree)) {
       if (root < 0) {
-        expect(RoseTree.root(c)).toBeGreaterThan(root);
+        expect(await RoseTree.root(c)).toBeGreaterThan(root);
       } else {
-        expect(RoseTree.root(c)).toBeLessThan(root);
+        expect(await RoseTree.root(c)).toBeLessThan(root);
       }
-    });
+    }
   }
 });
 
@@ -128,13 +138,13 @@ test('integer structure 2', async () => {
     const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for await (let c of children) {
+      const value = await RoseTree.root(c);
 
       expect(value).toBeGreaterThanOrEqual(0);
       expect(value).toBeLessThanOrEqual(1e5);
       expect(value).toBeLessThanOrEqual(root);
-    });
+    }
   }
 });
 
@@ -149,8 +159,8 @@ test('float structure', async () => {
     const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for await (let c of children) {
+      const value = await RoseTree.root(c);
 
       if (root === 0) {
         expect(value).toEqual(0);
@@ -159,7 +169,7 @@ test('float structure', async () => {
       } else {
         expect(value).toBeLessThanOrEqual(root);
       }
-    });
+    }
   }
 });
 
@@ -170,8 +180,8 @@ test('number', async () => {
     const root: number = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for await (let c of children) {
+      const value = await RoseTree.root(c);
 
       if (root === 0) {
         expect(value).toEqual(0);
@@ -180,7 +190,7 @@ test('number', async () => {
       } else {
         expect(value).toBeLessThanOrEqual(root);
       }
-    });
+    }
   }
 });
 
@@ -225,15 +235,15 @@ test('string structure', async () => {
     const root: string = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<string>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for await (let c of RoseTree.children(tree)) {
+      const value = await RoseTree.root(c);
       expect(value.length).toBeLessThanOrEqual(root.length);
-    });
+    }
 
     if (root === '') {
       expect(children).toHaveLength(0);
     } else {
-      expect(children.some(c => RoseTree.root(c).length < root.length)).toEqual(true);
+      expect(await some(children, async c => (await RoseTree.root(c)).length < root.length)).toEqual(true);
     }
   }
 });
@@ -249,15 +259,15 @@ test('string structure', async () => {
     const root: string = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<string>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for (let c of children) {
+      const value = await RoseTree.root(c);
       expect(value.length).toBeLessThanOrEqual(root.length);
-    });
+    }
 
     if (root === '') {
       expect(children).toHaveLength(0);
     } else {
-      expect(children.some(c => RoseTree.root(c).length < root.length)).toEqual(true);
+      expect(await some(children, async c => (await RoseTree.root(c)).length < root.length)).toEqual(true);
     }
   }
 });
@@ -275,10 +285,10 @@ test('array structure', async () => {
     const root: number[] = await RoseTree.root(tree);
     const children = await Iter.toArray<RoseTree.Rose<number[]>>(RoseTree.children(tree));
 
-    children.forEach(c => {
-      const value = RoseTree.root(c);
+    for await (let c of RoseTree.children(tree)) {
+      const value = await RoseTree.root(c);
       expect(value.length).toBeLessThanOrEqual(root.length);
-    });
+    }
   }
 });
 
@@ -294,11 +304,11 @@ test('object structure', async () => {
 
   const tree = result[0];
 
-  const root = RoseTree.root(tree as any);
+  const root = await RoseTree.root(tree as any);
   const children = RoseTree.children(tree as any);
 
   for await (let kid of children) {
-    const next = RoseTree.root(kid);
+    const next = await RoseTree.root(kid);
     expect(next).not.toEqual(root);
   }
 });

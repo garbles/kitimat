@@ -16,7 +16,7 @@ const serializeChildren = async <A>(tree: RoseTree.Rose<A>): Promise<any> => {
   }
 
   return {
-    root: RoseTree.root(tree),
+    root: await RoseTree.root(tree),
     children,
   };
 };
@@ -25,8 +25,8 @@ test('singleton', async () => {
   expect(await serializeChildren(RoseTree.singleton(5))).toMatchSnapshot();
 });
 
-test('root', () => {
-  expect(RoseTree.root(singleton)).toMatchSnapshot();
+test('root', async () => {
+  expect(await RoseTree.root(singleton)).toMatchSnapshot();
 });
 
 test('map', async () => {
