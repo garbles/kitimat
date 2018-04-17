@@ -25,6 +25,17 @@ const peel = (seed: Seed): number => {
   return ((word >>> 22) | word) >>> 0;
 };
 
+export const independentSeed = async (seed0: Seed): Promise<[Seed, Seed]> => {
+  const gen = integer(0, 0xffffffff);
+  const tripleGen = map3<number, number, number, [number, number, number]>((a, b, c) => [a, b, c], gen, gen, gen);
+  const { value, nextSeed: seed1 } = await tripleGen(seed0);
+  const [state, b, c] = value;
+
+  const increment = (b ^ c) | (1 >> 0);
+  const nextSeed = next({ state, increment });
+  return [seed1, nextSeed];
+};
+
 export const initialSeed = (x: number): Seed => {
   // The magic constant is from Numerical Recipes and is inlined for perf.
   const seed: Seed = next({ state: 0, increment: 1013904223 });
@@ -51,6 +62,18 @@ export const map2 = <A, B, C>(
   const { value: valA, nextSeed: seedA } = await a(seed);
   const { value: valB, nextSeed: seedB } = await b(seedA);
   return { value: await fn(valA, valB), nextSeed: seedB };
+};
+
+export const map3 = <A, B, C, D>(
+  fn: (a: A, b: B, c: C) => Awaitable<D>,
+  a: Generator<A>,
+  b: Generator<B>,
+  c: Generator<C>,
+): Generator<D> => async seed => {
+  const { value: valA, nextSeed: seedA } = await a(seed);
+  const { value: valB, nextSeed: seedB } = await b(seedA);
+  const { value: valC, nextSeed: seedC } = await c(seedB);
+  return { value: await fn(valA, valB, valC), nextSeed: seedC };
 };
 
 export const frequency = <A>(pairs: [number, Generator<A>][]): Generator<A> => {
@@ -190,12 +213,12 @@ export const string = (minSize: number, maxSize: number): Generator<string> =>
 export const asciiString = (minSize: number, maxSize: number): Generator<string> =>
   map(chars => chars.join(''), flatMap(size => array(size, asciiCharacter), integer(minSize, maxSize)));
 
-export const sample = <A>(constants: A[]): Generator<A> => {
+export const oneOf = <A>(constants: A[]): Generator<A> => {
   const pairs = constants.map<[number, Generator<A>]>(c => [1, constant(c)]);
   return frequency(pairs);
 };
 
-export const whitespaceCharacter = sample([' ', '\t', '\n']);
+export const whitespaceCharacter = oneOf([' ', '\t', '\n']);
 
 export const whitespace: Generator<string> = map(
   chars => chars.join(''),

@@ -112,9 +112,9 @@ export const filter = <A>(fn: (a: A) => Awaitable<boolean>, iter: AsyncIterable<
     }
   });
 
-export const scan = <A>(fn: (a: A) => Awaitable<A>, init: A): AsyncIterable<A> =>
+export const scan = <A>(fn: (a: A) => Awaitable<A>, init: Awaitable<A>): AsyncIterable<A> =>
   create<A>(async function*() {
-    let next = init;
+    let next = await init;
     yield next;
 
     while (true) {
