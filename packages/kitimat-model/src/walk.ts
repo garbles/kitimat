@@ -5,17 +5,16 @@ type Walk<M, O> = AsyncIterable<Line<M, O, any>>;
 
 const generator = <M, O>(graph: Graph<M, O>): Random.Generator<Walk<M, O>> => async seed => {
   const [seedA, seedB] = await Random.independentSeed(seed);
-  const lineGen = Random.oneOf<Line<M, O, any>>(graph.initialState.lines);
-  const lineProm = lineGen(seedA);
+  const lineGen = Random.oneOf(graph.initialState.lines);
 
-  const scan = Iter.scan<Random.Result<Line<M, O, any>>>(x => {
+  const scan = Iter.scan(x => {
     const { value, nextSeed } = x;
-    const nextGen = Random.oneOf<Line<M, O, any>>(value.end.lines);
+    const nextGen = Random.oneOf(value.end.lines);
     return nextGen(nextSeed);
-  }, lineProm);
+  }, lineGen(seedA));
 
   return {
-    value: Iter.map<Random.Result<Line<M, O, any>>, Line<M, O, any>>(result => result.value, scan),
+    value: Iter.map(result => result.value, scan),
     nextSeed: seedB,
   };
 };
