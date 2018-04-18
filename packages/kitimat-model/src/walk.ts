@@ -2,9 +2,8 @@ import { Random, Iter } from 'kitimat';
 import { Line, Graph } from './graph';
 
 type Walk<M, O> = AsyncIterable<Line<M, O, any>>;
-type WalkGenerator<M, O> = Random.Generator<Walk<M, O>>;
 
-const generator = <M, O>(graph: Graph<M, O>): WalkGenerator<M, O> => async seed => {
+const generator = <M, O>(graph: Graph<M, O>): Random.Generator<Walk<M, O>> => async seed => {
   const [tempSeed, returnableSeed] = await Random.independentSeed(seed);
   const lineGen = Random.oneOf<Line<M, O, any>>(graph.initialState.lines);
   const lineProm = lineGen(tempSeed);
