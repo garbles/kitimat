@@ -12,7 +12,7 @@ export interface Action<M, O, D = void> {
   apply(model: M, oracle: O, data: D): Awaitable<{}>;
   description(model: M, data: D): string;
   nextModel(model: M, data: D): M;
-  preValidate(model: M, oracle: O): Awaitable<boolean>;
+  preValidate(model: M): Awaitable<boolean>;
   postValidate(model: M, oracle: O): Awaitable<boolean>;
 }
 

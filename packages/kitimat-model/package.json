@@ -11,10 +11,12 @@
   "main": "__build__/index.js",
   "types": "__build__/index.d.ts",
   "dependencies": {
+    "deep-freeze": "^0.0.1",
     "invariant": "^2.2.4",
     "kitimat": "^0.1.8"
   },
   "devDependencies": {
+    "@types/deep-freeze": "^0.1.1",
     "@types/invariant": "^2.2.29"
   }
 }

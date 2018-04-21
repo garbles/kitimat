@@ -1,46 +1,53 @@
 import { Random, Iter, Awaitable } from 'kitimat';
+import * as clone from './clone';
 import { Branch, Graph, State } from './graph';
 
-type Computation<M, O> = Random.Result<{
+type Computation<M, O> = {
   state: State<M, O>;
   model: M;
-}>;
+  apply(oracle: O): Promise<any>;
+};
 
 type Walk<M, O> = AsyncIterable<Computation<M, O>>;
 
-const generator = <M, O>(graph: Graph<M, O>): Random.Generator<Walk<M, O>> => async seed => {
-  const [seedA, seedB] = await Random.independentSeed(seed);
-  const oracle = graph.oracle;
+/**
+ * TODO:
+ * - should throw if you are unable to use any branch because `preValidate` returns false for all of them
+ * - compute data with a fuzzer. how do I fold this in?
+ * - warn if model and nextModel have the same object reference
+ */
 
-  const initialResult: Computation<M, O> = {
+const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Generator<Walk<M, O>> => async seed => {
+  const [seedA, seedB] = await Random.independentSeed(seed);
+
+  const initialResult: Random.Result<Computation<M, O>> = {
     value: {
-      state: graph.initialState,
-      model: graph.initialModel,
+      state: initialState,
+      model: clone.data(initialModel),
+      apply: async () => true,
     },
     nextSeed: seedA,
   };
 
-  const walk = Iter.scan(async x => {
-    const { value, nextSeed: nextSeedA } = x;
-    const { state, model } = value;
-
-    // validate model in state
-    await state.validate(model, oracle);
+  const walk = Iter.scan(async result => {
+    const { value, nextSeed: nextSeedA } = result;
+    let { state, model } = value;
 
     // select branch
-    // TODO: this should throw if you end up unable to perform any branch
     const brIter = Iter.from(state.branches);
-    const brValid = Iter.filter(br => br.action.preValidate(model, oracle), brIter);
+    const brValid = Iter.filter(br => br.action.preValidate(model), brIter);
     const brArr = await Iter.toArray(brValid);
     const brGen = Random.oneOf<Branch<M, O, any>>(brArr);
-
     const { value: branch, nextSeed: nextSeedB } = await brGen(nextSeedA);
 
-    // apply the action
-    await branch.action.apply(model, oracle, undefined);
-
-    // validate the result of the action
-    await branch.action.postValidate(model, oracle);
+    const apply = async (oracle: O) => {
+      // validate model in state
+      await state.validate(model, oracle);
+      // apply the action
+      await branch.action.apply(model, oracle, undefined);
+      // validate the result of the action
+      await branch.action.postValidate(model, oracle);
+    };
 
     const nextState = branch.end;
     const nextModel = branch.action.nextModel(model, undefined);
@@ -48,18 +55,19 @@ const generator = <M, O>(graph: Graph<M, O>): Random.Generator<Walk<M, O>> => as
     return {
       value: {
         state: nextState,
-        model: nextModel,
+        model: clone.data(nextModel),
+        apply,
       },
       nextSeed: nextSeedB,
     };
   }, initialResult);
 
   return {
-    value: walk,
+    value: Iter.map(comp => comp.value, walk),
     nextSeed: seedB,
   };
 };
 
-const perform = <M, O>(graph: Graph<M, O>, walk: Walk<M, O>) => {};
+const perform = async <M, O>(oracle: O, walk: Walk<M, O>) => {};
 
-const shrink = <M, O>(graph: Graph<M, O>, walk: Walk<M, O>) => {};
+const shrink = async <M, O>(walk: Walk<M, O>) => {};
