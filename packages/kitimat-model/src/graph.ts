@@ -2,19 +2,21 @@ import { Fuzzer, Awaitable } from 'kitimat';
 
 export interface State<M, O> {
   name: string;
-  description: (model: M) => string;
-  validate: (model: M, oracle: O) => Awaitable<boolean>;
-  lines: Line<M, O, any>[];
+  branches: Branch<M, O, any>[];
+  description(model: M): string;
+  validate(model: M, oracle: O): Awaitable<boolean>;
 }
 
 export interface Action<M, O, D = void> {
-  fuzzer?: Fuzzer<D>;
-  description: (model: M, data: D) => string;
-  apply: (model: M, oracle: O, data: D) => Awaitable<{}>;
-  nextModel: (model: M, data: D) => M;
+  fuzzer: Fuzzer<D>;
+  apply(model: M, oracle: O, data: D): Awaitable<{}>;
+  description(model: M, data: D): string;
+  nextModel(model: M, data: D): M;
+  preValidate(model: M, oracle: O): Awaitable<boolean>;
+  postValidate(model: M, oracle: O): Awaitable<boolean>;
 }
 
-export interface Line<M, O, D> {
+export interface Branch<M, O, D> {
   start: State<M, O>;
   end: State<M, O>;
   action: Action<M, O, D>;
@@ -38,7 +40,7 @@ export class Graph<M, O> {
     this.states.set(state.name, state);
   }
 
-  addLine<D>(start: State<M, O>, end: State<M, O>, action: Action<M, O, D>) {
+  addBranch<D>(start: State<M, O>, end: State<M, O>, action: Action<M, O, D>) {
     if (!this.states.has(start.name)) {
       throw new Error(`State "${start.name}" must be registered with "addState" before it can be used in a line.`);
     }
@@ -47,12 +49,12 @@ export class Graph<M, O> {
       throw new Error(`State "${end.name}" must be registered with "addState" before it can be used in a line.`);
     }
 
-    const line: Line<M, O, D> = {
+    const branch: Branch<M, O, D> = {
       start,
       end,
       action,
     };
 
-    start.lines = start.lines.concat(line);
+    start.branches = start.branches.concat(branch);
   }
 }

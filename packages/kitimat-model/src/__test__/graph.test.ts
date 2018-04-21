@@ -1,4 +1,4 @@
-import { Graph, State, Action, Line } from '../graph';
+import { Graph, State, Action, Branch } from '../graph';
 
 type Model = {
   toggle: boolean;
@@ -16,7 +16,7 @@ const state1: State<Model, Oracle> = {
   validate: async (model, oracle) => {
     return model.toggle === (await oracle.getToggle()) && model.toggle === true;
   },
-  lines: [],
+  branches: [],
 };
 
 const state2: State<Model, Oracle> = {
@@ -25,19 +25,23 @@ const state2: State<Model, Oracle> = {
   validate: async (model, oracle) => {
     return model.toggle === (await oracle.getToggle()) && model.toggle === false;
   },
-  lines: [],
+  branches: [],
 };
 
 const action1To2: Action<Model, Oracle> = {
   description: () => 'toggle off',
   apply: (model, oracle) => oracle.toggleOff(),
   nextModel: (model, data) => ({ ...model, toggle: false }),
+  preValidate: () => true,
+  postValidate: () => true,
 };
 
 const action2To1: Action<Model, Oracle> = {
   description: () => 'toggle on',
   apply: (model, oracle) => oracle.toggleOn(),
   nextModel: (model, data) => ({ ...model, toggle: true }),
+  preValidate: () => true,
+  postValidate: () => true,
 };
 
 const initialModel: Model = {
@@ -57,5 +61,5 @@ const oracle = {
 const graph = new Graph(state1, initialModel, oracle as Oracle);
 
 graph.addState(state2);
-graph.addLine(state1, state2, action1To2);
-graph.addLine(state2, state1, action2To1);
+graph.addBranch(state1, state2, action1To2);
+graph.addBranch(state2, state1, action2To1);

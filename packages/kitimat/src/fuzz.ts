@@ -44,7 +44,7 @@ export const custom = <A>(generator: Generator<A>, shrinker: Shrinker<A>): Fuzze
 };
 
 export const frequency = <A, B>(pairs: [number, Fuzzer<A>][]): Fuzzer<A> => {
-  const genPairs = pairs.map((x): [number, Random.Generator<RoseTree.Rose<A>>] => [x[0], x[1].generator]);
+  const genPairs = pairs.map((x): [number, Generator<Rose<A>>] => [x[0], x[1].generator]);
   const generator = Random.frequency(genPairs);
   return new Fuzzer(generator);
 };
