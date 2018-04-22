@@ -53,7 +53,8 @@ const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Gen
     /**
      * By wrapping these in a function, the result of this generator is
      * deterministic even though the actions that the oracle performs
-     * are not.
+     * are not. It's possible to cache the iterator and apply these actions
+     * against successive oracles.
      */
     const apply = async (oracle: O) => {
       // validate model in state
@@ -75,7 +76,7 @@ const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Gen
   }, initialResult);
 
   return {
-    value: Iter.map(comp => comp.value, walk),
+    value: Iter.cached(Iter.map(comp => comp.value, walk)),
     nextSeed: seedB,
   };
 };
