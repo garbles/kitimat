@@ -7,11 +7,17 @@ import * as Report from './report';
 export const check = async <A>(property: Property.Property<A>, options: Options.Options): Promise<Report.Report<A>> => {
   const events = property(Test.checkRunner, options);
   const result = await Test.aggregateEvents(events);
-  const data = Util.last(result.fail);
+  const first = Util.first(result.fail);
+  const last = Util.last(result.fail);
 
-  // if data is present, the fail aggregate is populated
+  // if first is present, the fail aggregate is populated
   // by at least one failing run.
-  if (data) {
+  if (first && last) {
+    const data = {
+      first,
+      last,
+    };
+
     return { success: false, property, data, options };
   } else {
     return { success: true, property, options };

@@ -25,4 +25,5 @@ export const drop = <A>(n: number, arr: A[]): A[] => {
   return arr.slice(n);
 };
 
+export const first = <A>(arr: A[]): A | void => arr[0];
 export const last = <A>(arr: A[]): A | void => arr[arr.length - 1];

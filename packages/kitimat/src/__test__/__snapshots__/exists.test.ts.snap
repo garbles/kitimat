@@ -3,11 +3,20 @@
 exports[`exists fail 1`] = `
 Object {
   "data": Object {
-    "args": Array [
-      78,
-    ],
-    "depth": 0,
-    "result": false,
+    "first": Object {
+      "args": Array [
+        200,
+      ],
+      "depth": 0,
+      "result": false,
+    },
+    "last": Object {
+      "args": Array [
+        78,
+      ],
+      "depth": 0,
+      "result": false,
+    },
   },
   "options": Object {
     "maxNumTests": 1000,

@@ -13,7 +13,10 @@ export type FailReport<Args> = {
   success: false;
   options: Options.Options;
   property: Property.Property<Args>;
-  data: Test.FailData<Args>;
+  data: {
+    first: Test.FailData<Args>;
+    last: Test.FailData<Args>;
+  };
 };
 
 export type Report<Args> = SuccessReport<Args> | FailReport<Args>;

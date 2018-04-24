@@ -167,11 +167,16 @@ export const wrap = (it_: jest.It, exe: Execution): It => (
       const report = await exe(property, { seed, seedSource, maxNumTests, timeout });
 
       if (report.success === false) {
-        const error = report.data.result;
+        /**
+         * We show the LOCATION of the first failing result because it is the source of the error.
+         * We show the ARGS of the last failing result because they are the most valuable for debugging.
+         */
+        const error = report.data.first.result;
+        const args = report.data.last.args;
 
         let result: JestResult = {
           passed: false,
-          error: report.data.result,
+          error,
         };
 
         if (isJestError(error)) {
@@ -182,7 +187,20 @@ export const wrap = (it_: jest.It, exe: Execution): It => (
           result.actual = matcherResult.actual;
         }
 
-        spec.result.description += ` (seed: ${options.seed}, source: ${options.seedSource})`;
+        const jestIndent = '\n      ';
+
+        const prettyArgs =
+          jestIndent +
+          '  ' +
+          JSON.stringify(args, null, 2)
+            .split('\n')
+            .join(jestIndent + '  ');
+
+        spec.result.description += `${jestIndent}seed: ${options.seed}`;
+        spec.result.description += `${jestIndent}seed source: ${options.seedSource}`;
+        spec.result.description += `${jestIndent}minimum arguments to make this test fail:`;
+        spec.result.description += prettyArgs;
+
         spec.addExpectationResult(false, result, false);
       }
     },
