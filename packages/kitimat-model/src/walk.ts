@@ -5,10 +5,17 @@ import { freeze } from './utils';
 type Computation<M, O> = {
   state: State<M, O>;
   model: M;
-  apply(oracle: O): Promise<any>;
+  apply(oracle: O): Awaitable<any>;
 };
 
 type Walk<M, O> = AsyncIterable<Computation<M, O>>;
+
+type Props<M, O> = {
+  initialState: State<M, O>;
+  initialModel: M;
+  minSize: number;
+  maxSize: number;
+};
 
 /**
  * TODO:
@@ -16,14 +23,17 @@ type Walk<M, O> = AsyncIterable<Computation<M, O>>;
  * - warn if model and nextModel have the same object reference
  */
 
-const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Generator<Walk<M, O>> => async seed => {
+const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => async seed => {
+  const { initialState, initialModel, minSize, maxSize } = props;
   const [seedA, seedB] = await Random.independentSeed(seed);
+
+  freeze(initialModel);
 
   const initialResult: Random.Result<Computation<M, O>> = {
     value: {
       state: initialState,
-      model: freeze(initialModel),
-      apply: async () => true,
+      model: initialModel,
+      apply: (oracle: O) => initialState.validate(initialModel, oracle),
     },
     nextSeed: seedA,
   };
@@ -57,17 +67,17 @@ const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Gen
      * against successive oracles.
      */
     const apply = async (oracle: O) => {
-      // validate model in state
-      await state.validate(model, oracle);
       // apply the action to the oracle
       await branch.action.apply(model, oracle, data);
       // validate the result of the action
-      await branch.action.postValidate(nextModel, oracle);
+      await branch.action.postValidate(model, nextModel, oracle, data);
+      // validate the next model in state
+      await branch.nextState.validate(nextModel, oracle);
     };
 
     return {
       value: {
-        state: branch.end,
+        state: branch.nextState,
         model: nextModel,
         apply,
       },
@@ -75,9 +85,13 @@ const generator = <M, O>(initialState: State<M, O>, initialModel: M): Random.Gen
     };
   }, initialResult);
 
+  // this is kind of gross
+  const { value: len, nextSeed: seedC } = await Random.integer(minSize, maxSize)(seedB);
+  const result = Iter.cached(Iter.take(len, Iter.map(comp => comp.value, walk)));
+
   return {
-    value: Iter.cached(Iter.map(comp => comp.value, walk)),
-    nextSeed: seedB,
+    value: result,
+    nextSeed: seedC,
   };
 };
 
