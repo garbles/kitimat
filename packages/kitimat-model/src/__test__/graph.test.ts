@@ -1,65 +1,34 @@
 import { Graph, State, Action, Branch } from '../graph';
+import * as K from 'kitimat';
+import { check } from 'kitimat-jest';
+import { noopAction } from './helpers';
+import { noopStatesGen } from './fuzzers';
 
-type Model = {
-  toggle: boolean;
-};
+/**
+ * This is a simple property that will just ensure everything works.
+ * Reluctant to introduce anything more because this is testing internal
+ * implementation details.
+ */
+check('states loop if graph is a ring', [noopStatesGen], states => {
+  const [initialState, ...rest] = states;
 
-type Oracle = {
-  toggleOn(): Promise<void>;
-  toggleOff(): Promise<void>;
-  getToggle(): Promise<boolean>;
-};
+  const graph = new Graph(initialState, {});
+  graph.addStates(rest);
 
-const state1: State<Model, Oracle> = {
-  name: 'A',
-  description: () => 'A',
-  validate: async (model, oracle) => {
-    return model.toggle === (await oracle.getToggle()) && model.toggle === true;
-  },
-  branches: [],
-};
+  for (let i = 0; i < states.length; i++) {
+    const current = states[i];
+    const next = states[i % states.length];
 
-const state2: State<Model, Oracle> = {
-  name: 'B',
-  description: () => 'B',
-  validate: async (model, oracle) => {
-    return model.toggle === (await oracle.getToggle()) && model.toggle === false;
-  },
-  branches: [],
-};
+    graph.addBranch(current, next, noopAction());
+  }
 
-const action1To2: Action<Model, Oracle> = {
-  description: () => 'toggle off',
-  apply: (model, oracle) => oracle.toggleOff(),
-  nextModel: (model, data) => ({ ...model, toggle: false }),
-  preValidate: () => true,
-  postValidate: () => true,
-};
+  let times = states.length;
+  let i = 0;
+  let currentState = graph.initialState;
 
-const action2To1: Action<Model, Oracle> = {
-  description: () => 'toggle on',
-  apply: (model, oracle) => oracle.toggleOn(),
-  nextModel: (model, data) => ({ ...model, toggle: true }),
-  preValidate: () => true,
-  postValidate: () => true,
-};
+  while (++i < times) {
+    currentState = currentState.branches[0].nextState;
+  }
 
-const initialModel: Model = {
-  toggle: true,
-};
-
-const oracle = {
-  toggle: true,
-
-  async toggleOn() {},
-  async toggleOff() {},
-  async getToggle() {
-    return this.toggle;
-  },
-};
-
-const graph = new Graph(state1, initialModel, oracle as Oracle);
-
-graph.addState(state2);
-graph.addBranch(state1, state2, action1To2);
-graph.addBranch(state2, state1, action2To1);
+  expect(currentState).toEqual(graph.initialState);
+});

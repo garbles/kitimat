@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/deep-freeze": "^0.1.1",
-    "@types/invariant": "^2.2.29"
+    "@types/invariant": "^2.2.29",
+    "kitimat-jest": "^0.1.8"
   }
 }

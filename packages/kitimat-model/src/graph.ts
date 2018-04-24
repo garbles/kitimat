@@ -12,13 +12,12 @@ export interface Action<M, O, D = void> {
   apply(model: M, oracle: O, data: D): Awaitable<{}>;
   description(model: M, data: D): string;
   nextModel(model: M, data: D): M;
-  preValidate(model: M): Awaitable<boolean>;
-  postValidate(model: M, oracle: O): Awaitable<boolean>;
+  preValidate(model: M): boolean;
+  postValidate(prevModel: M, nextModel: M, oracle: O, data: D): Awaitable<boolean>;
 }
 
 export interface Branch<M, O, D> {
-  start: State<M, O>;
-  end: State<M, O>;
+  nextState: State<M, O>;
   action: Action<M, O, D>;
 }
 
@@ -27,7 +26,7 @@ export type StateMap<M, O> = Map<string, State<M, O>>;
 export class Graph<M, O> {
   states: StateMap<M, O>;
 
-  constructor(public initialState: State<M, O>, public initialModel: M, public oracle: O) {
+  constructor(public initialState: State<M, O>, public initialModel: M) {
     this.states = new Map();
     this.addState(initialState);
   }
@@ -40,21 +39,26 @@ export class Graph<M, O> {
     this.states.set(state.name, state);
   }
 
-  addBranch<D>(start: State<M, O>, end: State<M, O>, action: Action<M, O, D>) {
-    if (!this.states.has(start.name)) {
-      throw new Error(`State "${start.name}" must be registered with "addState" before it can be used in a line.`);
+  addStates(states: State<M, O>[]) {
+    states.forEach(state => this.addState(state));
+  }
+
+  addBranch<D>(currentState: State<M, O>, nextState: State<M, O>, action: Action<M, O, D>) {
+    if (!this.states.has(currentState.name)) {
+      throw new Error(
+        `State "${currentState.name}" must be registered with "addState" before it can be used in a line.`,
+      );
     }
 
-    if (!this.states.has(end.name)) {
-      throw new Error(`State "${end.name}" must be registered with "addState" before it can be used in a line.`);
+    if (!this.states.has(nextState.name)) {
+      throw new Error(`State "${nextState.name}" must be registered with "addState" before it can be used in a line.`);
     }
 
     const branch: Branch<M, O, D> = {
-      start,
-      end,
+      nextState,
       action,
     };
 
-    start.branches = start.branches.concat(branch);
+    currentState.branches = currentState.branches.concat(branch);
   }
 }
