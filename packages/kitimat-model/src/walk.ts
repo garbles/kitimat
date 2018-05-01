@@ -2,15 +2,15 @@ import { Random, Iter, Awaitable, RoseTree } from 'kitimat';
 import { Branch, Graph, State } from './graph';
 import { freeze } from './utils';
 
-type Computation<M, O> = {
+export type Computation<M, O> = {
   state: State<M, O>;
   model: M;
   apply(oracle: O): Awaitable<any>;
 };
 
-type Walk<M, O> = Computation<M, O>[];
+export type Walk<M, O> = Computation<M, O>[];
 
-type Props<M, O> = {
+export type Props<M, O> = {
   initialState: State<M, O>;
   initialModel: M;
   minSize: number;

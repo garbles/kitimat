@@ -20,3 +20,15 @@ export const noopAction = (): Action<any, any, any> => {
     postValidate: () => true,
   };
 };
+
+export const uniqueByName = (states: State<any, any>[]) =>
+  states.reduce(
+    (results, next) => {
+      if (results.find(val => val.name === next.name)) {
+        return results;
+      }
+
+      return results.concat(next);
+    },
+    [] as State<any, any>[],
+  );

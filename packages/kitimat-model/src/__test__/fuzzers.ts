@@ -1,6 +1,6 @@
 import { Graph, State, Action, Branch } from '../graph';
 import * as K from 'kitimat';
-import { noopState, noopAction } from './helpers';
+import { noopState, noopAction, uniqueByName } from './helpers';
 
 /**
  * Generate noop state
@@ -12,7 +12,9 @@ export const noopStateFuzzer = K.asciiString()
 /**
  * Generate a list of noop states
  */
-export const noopStatesFuzzer = K.array(noopStateFuzzer).filter(arr => arr.length >= 2);
+export const noopStatesFuzzer = K.array(noopStateFuzzer)
+  .map(uniqueByName)
+  .filter(arr => arr.length >= 2);
 
 /**
  * Generate a noop graph
