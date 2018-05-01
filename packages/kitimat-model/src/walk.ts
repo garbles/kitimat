@@ -8,7 +8,7 @@ type Computation<M, O> = {
   apply(oracle: O): Awaitable<any>;
 };
 
-type Walk<M, O> = AsyncIterable<Computation<M, O>>;
+type Walk<M, O> = Computation<M, O>[];
 
 type Props<M, O> = {
   initialState: State<M, O>;
@@ -23,7 +23,7 @@ type Props<M, O> = {
  * - warn if model and nextModel have the same object reference
  */
 
-const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => async seed => {
+export const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => async seed => {
   const { initialState, initialModel, minSize, maxSize } = props;
   const [seedA, seedB] = await Random.independentSeed(seed);
 
@@ -51,7 +51,8 @@ const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => as
 
     // this could probably be better, but the Fuzzers/RoseTrees are lazy
     const { value: tree, nextSeed: nextSeedC } = await branch.action.fuzzer.generator(nextSeedB);
-    const data = freeze(await RoseTree.root(tree));
+    const root = await RoseTree.root(tree);
+    const data = freeze(root);
 
     /**
      * determine what the next model is supposed to be.
@@ -87,7 +88,7 @@ const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => as
 
   // this is kind of gross
   const { value: len, nextSeed: seedC } = await Random.integer(minSize, maxSize)(seedB);
-  const result = Iter.cached(Iter.take(len, Iter.map(comp => comp.value, walk)));
+  const result = await Iter.toArray(Iter.take(len, Iter.map(comp => comp.value, walk)));
 
   return {
     value: result,
@@ -95,6 +96,6 @@ const generator = <M, O>(props: Props<M, O>): Random.Generator<Walk<M, O>> => as
   };
 };
 
-const perform = async <M, O>(oracle: O, walk: Walk<M, O>) => {};
+export const perform = async <M, O>(oracle: O, walk: Walk<M, O>) => {};
 
-const shrink = async <M, O>(walk: Walk<M, O>) => {};
+export const shrink = async <M, O>(walk: Walk<M, O>) => {};
