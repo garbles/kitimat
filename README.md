@@ -51,7 +51,7 @@ check('ordered', [array(integer())], arr => {
 You can install Kitimat on its own, but it is recommend that you use it with Jest.
 
 ```
-yarn install kitimat kitimat-jest jest --dev
+yarn add kitimat kitimat-jest jest --dev
 ```
 
 ## Configuration
